@@ -29,12 +29,12 @@ namespace StudentManagement
             buttonAdd.Enabled = false;
         }
 
-        private void buttonCancel_Click(object sender, EventArgs e)
+        private void ButtonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void textBox_TextChanged(object sender, EventArgs e)
+        private void TextBox_TextChanged(object sender, EventArgs e)
         {
             buttonAdd.Enabled = true;
 
@@ -48,7 +48,7 @@ namespace StudentManagement
             }
         }
 
-        private void buttonAdd_Click(object sender, EventArgs e)
+        private void ButtonAdd_Click(object sender, EventArgs e)
         {
             var student = GetStudent();
             
@@ -59,8 +59,8 @@ namespace StudentManagement
             else
             {
                 listStudents.Add(student);
-                MessageBox.Show("Thêm học sinh thành công!");
                 StudentAdded?.Invoke(this, EventArgs.Empty);
+                MessageBox.Show("Thêm học sinh thành công!");
             }
         }
 

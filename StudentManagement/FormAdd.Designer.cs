@@ -79,7 +79,7 @@
             this.textBoxGPA.Name = "textBoxGPA";
             this.textBoxGPA.Size = new System.Drawing.Size(187, 20);
             this.textBoxGPA.TabIndex = 9;
-            this.textBoxGPA.TextChanged += new System.EventHandler(this.textBox_TextChanged);
+            this.textBoxGPA.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // textBoxHometown
             // 
@@ -88,7 +88,7 @@
             this.textBoxHometown.Name = "textBoxHometown";
             this.textBoxHometown.Size = new System.Drawing.Size(187, 20);
             this.textBoxHometown.TabIndex = 8;
-            this.textBoxHometown.TextChanged += new System.EventHandler(this.textBox_TextChanged);
+            this.textBoxHometown.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // textBoxFullName
             // 
@@ -97,7 +97,7 @@
             this.textBoxFullName.Name = "textBoxFullName";
             this.textBoxFullName.Size = new System.Drawing.Size(187, 20);
             this.textBoxFullName.TabIndex = 6;
-            this.textBoxFullName.TextChanged += new System.EventHandler(this.textBox_TextChanged);
+            this.textBoxFullName.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // label1
             // 
@@ -161,7 +161,7 @@
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(187, 20);
             this.textBoxID.TabIndex = 5;
-            this.textBoxID.TextChanged += new System.EventHandler(this.textBox_TextChanged);
+            this.textBoxID.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // dateTimePickerBirthDate
             // 
@@ -194,7 +194,7 @@
             this.buttonCancel.TabIndex = 1;
             this.buttonCancel.Text = "Hủy";
             this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            this.buttonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
             // 
             // buttonAdd
             // 
@@ -205,7 +205,7 @@
             this.buttonAdd.TabIndex = 0;
             this.buttonAdd.Text = "Thêm";
             this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            this.buttonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
             // 
             // FormAdd
             // 

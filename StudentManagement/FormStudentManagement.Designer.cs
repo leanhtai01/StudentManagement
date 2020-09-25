@@ -88,6 +88,7 @@
             this.buttonFilter.TabIndex = 2;
             this.buttonFilter.Text = "Tìm kiếm/Thống kê";
             this.buttonFilter.UseVisualStyleBackColor = true;
+            this.buttonFilter.Click += new System.EventHandler(this.buttonFilter_Click);
             // 
             // buttonAdd
             // 
@@ -126,6 +127,7 @@
             // 
             // dataGridViewStudent
             // 
+            this.dataGridViewStudent.AllowUserToAddRows = false;
             this.dataGridViewStudent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -142,6 +144,7 @@
             this.dataGridViewStudent.Location = new System.Drawing.Point(9, 20);
             this.dataGridViewStudent.Name = "dataGridViewStudent";
             this.dataGridViewStudent.RowHeadersVisible = false;
+            this.dataGridViewStudent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewStudent.Size = new System.Drawing.Size(775, 282);
             this.dataGridViewStudent.TabIndex = 0;
             // 

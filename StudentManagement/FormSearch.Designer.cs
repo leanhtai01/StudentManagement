@@ -29,21 +29,22 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.comboBoxGPA = new System.Windows.Forms.ComboBox();
+            this.comboBoxHometown = new System.Windows.Forms.ComboBox();
+            this.comboBoxFullName = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.comboBoxID = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonFilter = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -51,16 +52,16 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.91525F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.08475F));
-            this.tableLayoutPanel1.Controls.Add(this.comboBox5, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.comboBox4, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.comboBox3, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.comboBox2, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxGPA, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxHometown, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxFullName, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.comboBox1, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxID, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.numericUpDown1, 1, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(39, 25);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
@@ -71,6 +72,36 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(295, 208);
             this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // comboBoxGPA
+            // 
+            this.comboBoxGPA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxGPA.FormattingEnabled = true;
+            this.comboBoxGPA.Location = new System.Drawing.Point(105, 175);
+            this.comboBoxGPA.Name = "comboBoxGPA";
+            this.comboBoxGPA.Size = new System.Drawing.Size(187, 21);
+            this.comboBoxGPA.TabIndex = 9;
+            this.comboBoxGPA.TextChanged += new System.EventHandler(this.ComboBox_TextChanged);
+            // 
+            // comboBoxHometown
+            // 
+            this.comboBoxHometown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxHometown.FormattingEnabled = true;
+            this.comboBoxHometown.Location = new System.Drawing.Point(105, 133);
+            this.comboBoxHometown.Name = "comboBoxHometown";
+            this.comboBoxHometown.Size = new System.Drawing.Size(187, 21);
+            this.comboBoxHometown.TabIndex = 8;
+            this.comboBoxHometown.TextChanged += new System.EventHandler(this.ComboBox_TextChanged);
+            // 
+            // comboBoxFullName
+            // 
+            this.comboBoxFullName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxFullName.FormattingEnabled = true;
+            this.comboBoxFullName.Location = new System.Drawing.Point(105, 51);
+            this.comboBoxFullName.Name = "comboBoxFullName";
+            this.comboBoxFullName.Size = new System.Drawing.Size(187, 21);
+            this.comboBoxFullName.TabIndex = 6;
+            this.comboBoxFullName.TextChanged += new System.EventHandler(this.ComboBox_TextChanged);
             // 
             // label1
             // 
@@ -102,7 +133,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 13);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Ngày sinh:";
+            this.label3.Text = "Tuổi:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label4
@@ -127,6 +158,16 @@
             this.label5.Text = "Điểm trung bình:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // comboBoxID
+            // 
+            this.comboBoxID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxID.FormattingEnabled = true;
+            this.comboBoxID.Location = new System.Drawing.Point(105, 10);
+            this.comboBoxID.Name = "comboBoxID";
+            this.comboBoxID.Size = new System.Drawing.Size(187, 21);
+            this.comboBoxID.TabIndex = 5;
+            this.comboBoxID.TextChanged += new System.EventHandler(this.ComboBox_TextChanged);
+            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
@@ -150,6 +191,7 @@
             this.buttonCancel.TabIndex = 1;
             this.buttonCancel.Text = "Hủy";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonFilter
             // 
@@ -160,51 +202,15 @@
             this.buttonFilter.TabIndex = 0;
             this.buttonFilter.Text = "Lọc";
             this.buttonFilter.UseVisualStyleBackColor = true;
+            this.buttonFilter.Click += new System.EventHandler(this.buttonFilter_Click);
             // 
-            // comboBox1
+            // numericUpDown1
             // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(105, 10);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(187, 21);
-            this.comboBox1.TabIndex = 5;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(105, 51);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(187, 21);
-            this.comboBox2.TabIndex = 6;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(105, 92);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(187, 21);
-            this.comboBox3.TabIndex = 7;
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(105, 133);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(187, 21);
-            this.comboBox4.TabIndex = 8;
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(105, 175);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(187, 21);
-            this.comboBox5.TabIndex = 9;
+            this.numericUpDown1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.numericUpDown1.Location = new System.Drawing.Point(105, 92);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(187, 20);
+            this.numericUpDown1.TabIndex = 10;
             // 
             // FormSearch
             // 
@@ -215,9 +221,11 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FormSearch";
             this.Text = "Tìm kiếm/Thống kê";
+            this.Load += new System.EventHandler(this.FormSearch_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -233,10 +241,10 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonFilter;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxGPA;
+        private System.Windows.Forms.ComboBox comboBoxHometown;
+        private System.Windows.Forms.ComboBox comboBoxFullName;
+        private System.Windows.Forms.ComboBox comboBoxID;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }

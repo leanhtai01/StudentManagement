@@ -22,7 +22,7 @@ namespace StudentManagement
             InitializeComponent();
         }
 
-        private void ReFillData()
+        private void ReFillData(List<Student> students)
         {
             DataTable dataTable = new DataTable();
 
@@ -34,12 +34,14 @@ namespace StudentManagement
             dataTable.Columns.Add("Điểm trung bình", typeof(double));
 
             //LoadDataFromFile();
-            for (int i = 0; i < listStudents.Count; i++)
+            for (int i = 0; i < students.Count; i++)
             {
-                dataTable.Rows.Add(i + 1, listStudents[i].ID, listStudents[i].FullName, listStudents[i].BirthDate, listStudents[i].Hometown, listStudents[i].GPA);
+                dataTable.Rows.Add(i + 1, students[i].ID, students[i].FullName, students[i].BirthDate, students[i].Hometown, students[i].GPA);
             }
 
             dataGridViewStudent.DataSource = dataTable;
+            dataGridViewStudent.Columns["STT"].ReadOnly = true;
+            dataGridViewStudent.Columns["MSSV"].ReadOnly = true;
             dataGridViewStudent.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewStudent.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewStudent.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -48,8 +50,8 @@ namespace StudentManagement
 
         private void buttonLoad_Click(object sender, EventArgs e)
         {
-            //LoadDataFromFile();
-            ReFillData();
+            LoadDataFromFile();
+            ReFillData(listStudents);
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -62,7 +64,7 @@ namespace StudentManagement
         private void FormStudentManagement_Load(object sender, EventArgs e)
         {
             LoadDataFromFile();
-            ReFillData();
+            ReFillData(listStudents);
         }
 
         private void LoadDataFromFile()
@@ -72,7 +74,20 @@ namespace StudentManagement
 
         public void OnStudentAdded(object sender, EventArgs e)
         {
-            ReFillData();
+            ReFillData(listStudents);
+            dataHandling.WriteData("dshocsinh.txt", listStudents);
+        }
+
+        public void OnStudentFound(object sender, EventArgs e, List<Student> list)
+        {
+            ReFillData(list);
+        }
+
+        private void buttonFilter_Click(object sender, EventArgs e)
+        {
+            FormSearch formSearch = new FormSearch(listStudents);
+            formSearch.StudentFound += (sendder, ed) => OnStudentFound(sender, e, formSearch.Result);
+            formSearch.Show();
         }
     }
 }

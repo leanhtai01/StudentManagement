@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.textBoxGPA = new System.Windows.Forms.TextBox();
+            this.textBoxHometown = new System.Windows.Forms.TextBox();
+            this.textBoxFullName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBoxID = new System.Windows.Forms.TextBox();
+            this.dateTimePickerBirthDate = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.buttonAdd = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -51,16 +51,16 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.91525F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.08475F));
-            this.tableLayoutPanel1.Controls.Add(this.textBox5, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.textBox4, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.textBox2, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxGPA, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxHometown, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxFullName, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxID, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.dateTimePickerBirthDate, 1, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(39, 23);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
@@ -71,6 +71,33 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(295, 208);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // textBoxGPA
+            // 
+            this.textBoxGPA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxGPA.Location = new System.Drawing.Point(105, 176);
+            this.textBoxGPA.Name = "textBoxGPA";
+            this.textBoxGPA.Size = new System.Drawing.Size(187, 20);
+            this.textBoxGPA.TabIndex = 9;
+            this.textBoxGPA.TextChanged += new System.EventHandler(this.textBox_TextChanged);
+            // 
+            // textBoxHometown
+            // 
+            this.textBoxHometown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxHometown.Location = new System.Drawing.Point(105, 133);
+            this.textBoxHometown.Name = "textBoxHometown";
+            this.textBoxHometown.Size = new System.Drawing.Size(187, 20);
+            this.textBoxHometown.TabIndex = 8;
+            this.textBoxHometown.TextChanged += new System.EventHandler(this.textBox_TextChanged);
+            // 
+            // textBoxFullName
+            // 
+            this.textBoxFullName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxFullName.Location = new System.Drawing.Point(105, 51);
+            this.textBoxFullName.Name = "textBoxFullName";
+            this.textBoxFullName.Size = new System.Drawing.Size(187, 20);
+            this.textBoxFullName.TabIndex = 6;
+            this.textBoxFullName.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // label1
             // 
@@ -127,37 +154,22 @@
             this.label5.Text = "Điểm trung bình:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox1
+            // textBoxID
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(105, 10);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(187, 20);
-            this.textBox1.TabIndex = 5;
+            this.textBoxID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxID.Location = new System.Drawing.Point(105, 10);
+            this.textBoxID.Name = "textBoxID";
+            this.textBoxID.Size = new System.Drawing.Size(187, 20);
+            this.textBoxID.TabIndex = 5;
+            this.textBoxID.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
-            // textBox2
+            // dateTimePickerBirthDate
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(105, 51);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(187, 20);
-            this.textBox2.TabIndex = 6;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox4.Location = new System.Drawing.Point(105, 133);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(187, 20);
-            this.textBox4.TabIndex = 8;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox5.Location = new System.Drawing.Point(105, 176);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(187, 20);
-            this.textBox5.TabIndex = 9;
+            this.dateTimePickerBirthDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePickerBirthDate.Location = new System.Drawing.Point(105, 92);
+            this.dateTimePickerBirthDate.Name = "dateTimePickerBirthDate";
+            this.dateTimePickerBirthDate.Size = new System.Drawing.Size(187, 20);
+            this.dateTimePickerBirthDate.TabIndex = 10;
             // 
             // tableLayoutPanel2
             // 
@@ -173,16 +185,6 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(216, 54);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
-            // buttonAdd
-            // 
-            this.buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAdd.Location = new System.Drawing.Point(3, 7);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(102, 39);
-            this.buttonAdd.TabIndex = 0;
-            this.buttonAdd.Text = "Thêm";
-            this.buttonAdd.UseVisualStyleBackColor = true;
-            // 
             // buttonCancel
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -192,14 +194,18 @@
             this.buttonCancel.TabIndex = 1;
             this.buttonCancel.Text = "Hủy";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
-            // dateTimePicker1
+            // buttonAdd
             // 
-            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(105, 92);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(187, 20);
-            this.dateTimePicker1.TabIndex = 10;
+            this.buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAdd.Location = new System.Drawing.Point(3, 7);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(102, 39);
+            this.buttonAdd.TabIndex = 0;
+            this.buttonAdd.Text = "Thêm";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // FormAdd
             // 
@@ -213,6 +219,7 @@
             this.MinimizeBox = false;
             this.Name = "FormAdd";
             this.Text = "Thêm học sinh";
+            this.Load += new System.EventHandler(this.FormAdd_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -228,13 +235,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxGPA;
+        private System.Windows.Forms.TextBox textBoxHometown;
+        private System.Windows.Forms.TextBox textBoxFullName;
+        private System.Windows.Forms.TextBox textBoxID;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonAdd;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePickerBirthDate;
     }
 }

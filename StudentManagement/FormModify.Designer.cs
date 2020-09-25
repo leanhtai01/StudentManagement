@@ -216,6 +216,7 @@
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FormModify";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sửa thông tin";
             this.Load += new System.EventHandler(this.FormModify_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

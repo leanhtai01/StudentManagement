@@ -218,6 +218,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormAdd";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm học sinh";
             this.Load += new System.EventHandler(this.FormAdd_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

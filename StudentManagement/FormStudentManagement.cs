@@ -49,11 +49,6 @@ namespace StudentManagement
             FillData();
         }
 
-        private void FormStudentManagement_Load(object sender, EventArgs e)
-        {
-            FillData();
-        }
-
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             FormAdd formAdd = new FormAdd();

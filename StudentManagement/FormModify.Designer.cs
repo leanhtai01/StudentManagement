@@ -1,6 +1,6 @@
 ﻿namespace StudentManagement
 {
-    partial class FormSearch
+    partial class FormModify
     {
         /// <summary>
         /// Required designer variable.
@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBoxGPA = new System.Windows.Forms.ComboBox();
-            this.comboBoxHometown = new System.Windows.Forms.ComboBox();
-            this.comboBoxFullName = new System.Windows.Forms.ComboBox();
+            this.textBoxGPA = new System.Windows.Forms.TextBox();
+            this.textBoxHometown = new System.Windows.Forms.TextBox();
+            this.textBoxFullName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBoxID = new System.Windows.Forms.ComboBox();
+            this.textBoxID = new System.Windows.Forms.TextBox();
+            this.dateTimePickerBirthDate = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.buttonFilter = new System.Windows.Forms.Button();
-            this.textBoxAge = new System.Windows.Forms.TextBox();
+            this.buttonSave = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -51,17 +51,17 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.91525F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.08475F));
-            this.tableLayoutPanel1.Controls.Add(this.comboBoxGPA, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.comboBoxHometown, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.comboBoxFullName, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxGPA, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxHometown, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxFullName, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.comboBoxID, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxAge, 1, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(39, 25);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxID, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.dateTimePickerBirthDate, 1, 2);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(44, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -72,35 +72,32 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(295, 208);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
-            // comboBoxGPA
+            // textBoxGPA
             // 
-            this.comboBoxGPA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxGPA.FormattingEnabled = true;
-            this.comboBoxGPA.Location = new System.Drawing.Point(105, 175);
-            this.comboBoxGPA.Name = "comboBoxGPA";
-            this.comboBoxGPA.Size = new System.Drawing.Size(187, 21);
-            this.comboBoxGPA.TabIndex = 9;
-            this.comboBoxGPA.TextChanged += new System.EventHandler(this.ComboBox_TextChanged);
+            this.textBoxGPA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxGPA.Location = new System.Drawing.Point(105, 176);
+            this.textBoxGPA.Name = "textBoxGPA";
+            this.textBoxGPA.Size = new System.Drawing.Size(187, 20);
+            this.textBoxGPA.TabIndex = 9;
+            this.textBoxGPA.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
-            // comboBoxHometown
+            // textBoxHometown
             // 
-            this.comboBoxHometown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxHometown.FormattingEnabled = true;
-            this.comboBoxHometown.Location = new System.Drawing.Point(105, 133);
-            this.comboBoxHometown.Name = "comboBoxHometown";
-            this.comboBoxHometown.Size = new System.Drawing.Size(187, 21);
-            this.comboBoxHometown.TabIndex = 8;
-            this.comboBoxHometown.TextChanged += new System.EventHandler(this.ComboBox_TextChanged);
+            this.textBoxHometown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxHometown.Location = new System.Drawing.Point(105, 133);
+            this.textBoxHometown.Name = "textBoxHometown";
+            this.textBoxHometown.Size = new System.Drawing.Size(187, 20);
+            this.textBoxHometown.TabIndex = 8;
+            this.textBoxHometown.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
-            // comboBoxFullName
+            // textBoxFullName
             // 
-            this.comboBoxFullName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxFullName.FormattingEnabled = true;
-            this.comboBoxFullName.Location = new System.Drawing.Point(105, 51);
-            this.comboBoxFullName.Name = "comboBoxFullName";
-            this.comboBoxFullName.Size = new System.Drawing.Size(187, 21);
-            this.comboBoxFullName.TabIndex = 6;
-            this.comboBoxFullName.TextChanged += new System.EventHandler(this.ComboBox_TextChanged);
+            this.textBoxFullName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxFullName.Location = new System.Drawing.Point(105, 51);
+            this.textBoxFullName.Name = "textBoxFullName";
+            this.textBoxFullName.Size = new System.Drawing.Size(187, 20);
+            this.textBoxFullName.TabIndex = 6;
+            this.textBoxFullName.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // label1
             // 
@@ -132,7 +129,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 13);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Tuổi:";
+            this.label3.Text = "Ngày sinh:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label4
@@ -157,15 +154,23 @@
             this.label5.Text = "Điểm trung bình:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // comboBoxID
+            // textBoxID
             // 
-            this.comboBoxID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxID.FormattingEnabled = true;
-            this.comboBoxID.Location = new System.Drawing.Point(105, 10);
-            this.comboBoxID.Name = "comboBoxID";
-            this.comboBoxID.Size = new System.Drawing.Size(187, 21);
-            this.comboBoxID.TabIndex = 5;
-            this.comboBoxID.TextChanged += new System.EventHandler(this.ComboBox_TextChanged);
+            this.textBoxID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxID.Location = new System.Drawing.Point(105, 10);
+            this.textBoxID.Name = "textBoxID";
+            this.textBoxID.ReadOnly = true;
+            this.textBoxID.Size = new System.Drawing.Size(187, 20);
+            this.textBoxID.TabIndex = 5;
+            // 
+            // dateTimePickerBirthDate
+            // 
+            this.dateTimePickerBirthDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePickerBirthDate.Location = new System.Drawing.Point(105, 92);
+            this.dateTimePickerBirthDate.Name = "dateTimePickerBirthDate";
+            this.dateTimePickerBirthDate.Size = new System.Drawing.Size(187, 20);
+            this.dateTimePickerBirthDate.TabIndex = 10;
+            this.dateTimePickerBirthDate.ValueChanged += new System.EventHandler(this.dateTimePickerBirthDate_ValueChanged);
             // 
             // tableLayoutPanel2
             // 
@@ -173,8 +178,8 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.buttonCancel, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.buttonFilter, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(82, 239);
+            this.tableLayoutPanel2.Controls.Add(this.buttonSave, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(84, 226);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -192,35 +197,27 @@
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
-            // buttonFilter
+            // buttonSave
             // 
-            this.buttonFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonFilter.Location = new System.Drawing.Point(3, 7);
-            this.buttonFilter.Name = "buttonFilter";
-            this.buttonFilter.Size = new System.Drawing.Size(102, 39);
-            this.buttonFilter.TabIndex = 0;
-            this.buttonFilter.Text = "Lọc";
-            this.buttonFilter.UseVisualStyleBackColor = true;
-            this.buttonFilter.Click += new System.EventHandler(this.buttonFilter_Click);
+            this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSave.Location = new System.Drawing.Point(3, 7);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(102, 39);
+            this.buttonSave.TabIndex = 0;
+            this.buttonSave.Text = "Lưu";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
-            // textBoxAge
-            // 
-            this.textBoxAge.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxAge.Location = new System.Drawing.Point(105, 92);
-            this.textBoxAge.Name = "textBoxAge";
-            this.textBoxAge.Size = new System.Drawing.Size(187, 20);
-            this.textBoxAge.TabIndex = 10;
-            // 
-            // FormSearch
+            // FormModify
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(369, 303);
+            this.ClientSize = new System.Drawing.Size(382, 289);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "FormSearch";
-            this.Text = "Tìm kiếm/Thống kê";
-            this.Load += new System.EventHandler(this.FormSearch_Load);
+            this.Name = "FormModify";
+            this.Text = "Sửa thông tin";
+            this.Load += new System.EventHandler(this.FormModify_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -231,18 +228,18 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TextBox textBoxGPA;
+        private System.Windows.Forms.TextBox textBoxHometown;
+        private System.Windows.Forms.TextBox textBoxFullName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBoxID;
+        private System.Windows.Forms.DateTimePicker dateTimePickerBirthDate;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.Button buttonFilter;
-        private System.Windows.Forms.ComboBox comboBoxGPA;
-        private System.Windows.Forms.ComboBox comboBoxHometown;
-        private System.Windows.Forms.ComboBox comboBoxFullName;
-        private System.Windows.Forms.ComboBox comboBoxID;
-        private System.Windows.Forms.TextBox textBoxAge;
+        private System.Windows.Forms.Button buttonSave;
     }
 }

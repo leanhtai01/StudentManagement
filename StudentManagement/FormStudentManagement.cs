@@ -78,6 +78,12 @@ namespace StudentManagement
             dataHandling.WriteData("dshocsinh.txt", listStudents);
         }
 
+        public void OnStudentModified(object sender, EventArgs e)
+        {
+            ReFillData(listStudents);
+            dataHandling.WriteData(filename, listStudents);
+        }
+
         public void OnStudentFound(object sender, EventArgs e, List<Student> list)
         {
             ReFillData(list);
@@ -88,6 +94,40 @@ namespace StudentManagement
             FormSearch formSearch = new FormSearch(listStudents);
             formSearch.StudentFound += (sendder, ed) => OnStudentFound(sender, e, formSearch.Result);
             formSearch.Show();
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            string id = "";
+
+            foreach (DataGridViewRow row in dataGridViewStudent.SelectedRows)
+            {
+                id = row.Cells[1].Value.ToString();
+            }
+
+            // remove from the list
+            listStudents.Remove(listStudents.Find(s => s.ID == id));
+
+            // remove from DataGridView
+            dataGridViewStudent.Rows.RemoveAt(dataGridViewStudent.SelectedRows[0].Index);
+
+            // write the change to file
+            dataHandling.WriteData(filename, listStudents);
+        }
+
+        private void buttonModify_Click(object sender, EventArgs e)
+        {
+            string id = "";
+
+            foreach (DataGridViewRow row in dataGridViewStudent.SelectedRows)
+            {
+                id = row.Cells[1].Value.ToString();
+            }
+
+            Student student = listStudents.Find(s => s.ID == id);
+            FormModify formModify = new FormModify(listStudents, student);
+            formModify.StudentModified += OnStudentModified;
+            formModify.Show();
         }
     }
 }

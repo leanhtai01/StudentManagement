@@ -73,13 +73,16 @@ namespace StudentManagement
                 }
 
                 // Age
-                if (result == null)
+                if (!string.IsNullOrEmpty(textBoxAge.Text.Trim()))
                 {
-                    result = new List<Student>(listStudents.FindAll(s => DateTime.Now.Year - s.BirthDate.Year == numericUpDown1.Value));
-                }
-                else
-                {
-                    result = result.FindAll(s => DateTime.Now.Year - s.BirthDate.Year == numericUpDown1.Value);
+                    if (result == null)
+                    {
+                        result = new List<Student>(listStudents.FindAll(s => DateTime.Now.Year - s.BirthDate.Year == Int32.Parse(textBoxAge.Text)));
+                    }
+                    else
+                    {
+                        result = result.FindAll(s => DateTime.Now.Year - s.BirthDate.Year == Int32.Parse(textBoxAge.Text));
+                    }
                 }
 
                 // Hometown

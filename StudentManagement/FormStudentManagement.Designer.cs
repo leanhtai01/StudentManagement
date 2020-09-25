@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonFilter = new System.Windows.Forms.Button();
@@ -36,6 +36,8 @@
             this.buttonLoad = new System.Windows.Forms.Button();
             this.groupBoxStudent = new System.Windows.Forms.GroupBox();
             this.dataGridViewStudent = new System.Windows.Forms.DataGridView();
+            this.buttonModify = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -65,10 +67,14 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnCount = 5;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.99465F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.25134F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.36007F));
+            this.tableLayoutPanel1.Controls.Add(this.buttonDelete, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.buttonModify, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.buttonFilter, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.buttonAdd, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.buttonLoad, 0, 0);
@@ -82,9 +88,9 @@
             // buttonFilter
             // 
             this.buttonFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonFilter.Location = new System.Drawing.Point(377, 36);
+            this.buttonFilter.Location = new System.Drawing.Point(225, 36);
             this.buttonFilter.Name = "buttonFilter";
-            this.buttonFilter.Size = new System.Drawing.Size(181, 33);
+            this.buttonFilter.Size = new System.Drawing.Size(122, 33);
             this.buttonFilter.TabIndex = 2;
             this.buttonFilter.Text = "Tìm kiếm/Thống kê";
             this.buttonFilter.UseVisualStyleBackColor = true;
@@ -93,9 +99,9 @@
             // buttonAdd
             // 
             this.buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAdd.Location = new System.Drawing.Point(190, 36);
+            this.buttonAdd.Location = new System.Drawing.Point(114, 36);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(181, 33);
+            this.buttonAdd.Size = new System.Drawing.Size(105, 33);
             this.buttonAdd.TabIndex = 1;
             this.buttonAdd.Text = "Thêm học sinh";
             this.buttonAdd.UseVisualStyleBackColor = true;
@@ -106,7 +112,7 @@
             this.buttonLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonLoad.Location = new System.Drawing.Point(3, 36);
             this.buttonLoad.Name = "buttonLoad";
-            this.buttonLoad.Size = new System.Drawing.Size(181, 33);
+            this.buttonLoad.Size = new System.Drawing.Size(105, 33);
             this.buttonLoad.TabIndex = 0;
             this.buttonLoad.Text = "Tải danh sách";
             this.buttonLoad.UseVisualStyleBackColor = true;
@@ -128,25 +134,50 @@
             // dataGridViewStudent
             // 
             this.dataGridViewStudent.AllowUserToAddRows = false;
+            this.dataGridViewStudent.AllowUserToDeleteRows = false;
             this.dataGridViewStudent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewStudent.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewStudent.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewStudent.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewStudent.Location = new System.Drawing.Point(9, 20);
+            this.dataGridViewStudent.MultiSelect = false;
             this.dataGridViewStudent.Name = "dataGridViewStudent";
+            this.dataGridViewStudent.ReadOnly = true;
             this.dataGridViewStudent.RowHeadersVisible = false;
             this.dataGridViewStudent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewStudent.Size = new System.Drawing.Size(775, 282);
             this.dataGridViewStudent.TabIndex = 0;
+            // 
+            // buttonModify
+            // 
+            this.buttonModify.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonModify.Location = new System.Drawing.Point(353, 36);
+            this.buttonModify.Name = "buttonModify";
+            this.buttonModify.Size = new System.Drawing.Size(101, 33);
+            this.buttonModify.TabIndex = 5;
+            this.buttonModify.Text = "Chỉnh sửa";
+            this.buttonModify.UseVisualStyleBackColor = true;
+            this.buttonModify.Click += new System.EventHandler(this.buttonModify_Click);
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonDelete.Location = new System.Drawing.Point(460, 36);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(98, 33);
+            this.buttonDelete.TabIndex = 6;
+            this.buttonDelete.Text = "Xóa";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // FormStudentManagement
             // 
@@ -177,6 +208,8 @@
         private System.Windows.Forms.Button buttonFilter;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonLoad;
+        private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Button buttonModify;
     }
 }
 

@@ -41,14 +41,18 @@ namespace W2_RetrieveDataFromSQLServer
             FillDataGridViewStudent(comboBoxClass.SelectedValue.ToString());
         }
 
-        private void FillDataGridViewStudent(string id)
+        /// <summary>
+        /// fill data table with list of students based on class ID
+        /// </summary>
+        /// <param name="classID"></param>
+        private void FillDataGridViewStudent(string classID)
         {
             // declare variables
-            string command = "SELECT * FROM HocSinh WHERE LopHocID = @id;";
+            string command = "SELECT * FROM HocSinh WHERE LopHocID = @classID;";
             List<SqlParameter> parameters = new List<SqlParameter>();
 
             // add parameter
-            parameters.Add(new SqlParameter("@id", id));
+            parameters.Add(new SqlParameter("@classID", classID));
 
             dataGridViewStudent.DataSource = GetData(sqlConn, command, parameters.ToArray());
             dataGridViewStudent.Columns["HocSinhID"].HeaderText = "MSSV";
@@ -61,6 +65,13 @@ namespace W2_RetrieveDataFromSQLServer
             dataGridViewStudent.Columns["QueQuan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
+        /// <summary>
+        /// get data from database
+        /// </summary>
+        /// <param name="sqlConn"></param>
+        /// <param name="command"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
         private DataTable GetData(SqlConnection sqlConn, string command, params SqlParameter[] parameters)
         {
             // declare variables

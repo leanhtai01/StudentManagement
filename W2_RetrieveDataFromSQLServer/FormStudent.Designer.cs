@@ -131,6 +131,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.splitContainer1);
             this.Name = "FormStudent";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý sinh viên";
             this.Load += new System.EventHandler(this.FormStudent_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);

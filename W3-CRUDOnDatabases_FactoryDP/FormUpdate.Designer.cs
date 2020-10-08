@@ -255,6 +255,7 @@
             this.ClientSize = new System.Drawing.Size(300, 396);
             this.Controls.Add(this.splitContainer1);
             this.Name = "FormUpdate";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sửa thông tin sinh viên";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

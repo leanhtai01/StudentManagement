@@ -30,9 +30,10 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonAdd = new System.Windows.Forms.Button();
-            this.buttonCancel = new System.Windows.Forms.Button();
+            this.textBoxHometown = new System.Windows.Forms.TextBox();
+            this.textBoxGPA = new System.Windows.Forms.TextBox();
+            this.textBoxBirthYear = new System.Windows.Forms.TextBox();
+            this.textBoxName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,11 +41,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxID = new System.Windows.Forms.TextBox();
-            this.textBoxName = new System.Windows.Forms.TextBox();
-            this.textBoxBirthYear = new System.Windows.Forms.TextBox();
-            this.textBoxGPA = new System.Windows.Forms.TextBox();
-            this.textBoxHometown = new System.Windows.Forms.TextBox();
             this.comboBoxClass = new System.Windows.Forms.ComboBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -102,42 +102,37 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(300, 298);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // tableLayoutPanel2
+            // textBoxHometown
             // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.buttonAdd, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.buttonCancel, 1, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(300, 94);
-            this.tableLayoutPanel2.TabIndex = 0;
+            this.textBoxHometown.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBoxHometown.Location = new System.Drawing.Point(100, 210);
+            this.textBoxHometown.Name = "textBoxHometown";
+            this.textBoxHometown.Size = new System.Drawing.Size(141, 20);
+            this.textBoxHometown.TabIndex = 10;
             // 
-            // buttonAdd
+            // textBoxGPA
             // 
-            this.buttonAdd.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.buttonAdd.Location = new System.Drawing.Point(21, 23);
-            this.buttonAdd.Margin = new System.Windows.Forms.Padding(20);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(109, 47);
-            this.buttonAdd.TabIndex = 0;
-            this.buttonAdd.Text = "Thêm";
-            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.textBoxGPA.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBoxGPA.Location = new System.Drawing.Point(100, 161);
+            this.textBoxGPA.Name = "textBoxGPA";
+            this.textBoxGPA.Size = new System.Drawing.Size(141, 20);
+            this.textBoxGPA.TabIndex = 9;
             // 
-            // buttonCancel
+            // textBoxBirthYear
             // 
-            this.buttonCancel.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.buttonCancel.Location = new System.Drawing.Point(170, 23);
-            this.buttonCancel.Margin = new System.Windows.Forms.Padding(20);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(109, 47);
-            this.buttonCancel.TabIndex = 1;
-            this.buttonCancel.Text = "Hủy";
-            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.textBoxBirthYear.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBoxBirthYear.Location = new System.Drawing.Point(100, 112);
+            this.textBoxBirthYear.Name = "textBoxBirthYear";
+            this.textBoxBirthYear.Size = new System.Drawing.Size(141, 20);
+            this.textBoxBirthYear.TabIndex = 8;
+            // 
+            // textBoxName
+            // 
+            this.textBoxName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBoxName.Location = new System.Drawing.Point(100, 63);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(141, 20);
+            this.textBoxName.TabIndex = 7;
             // 
             // label1
             // 
@@ -207,38 +202,6 @@
             this.textBoxID.Size = new System.Drawing.Size(141, 20);
             this.textBoxID.TabIndex = 6;
             // 
-            // textBoxName
-            // 
-            this.textBoxName.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBoxName.Location = new System.Drawing.Point(100, 63);
-            this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(141, 20);
-            this.textBoxName.TabIndex = 7;
-            // 
-            // textBoxBirthYear
-            // 
-            this.textBoxBirthYear.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBoxBirthYear.Location = new System.Drawing.Point(100, 112);
-            this.textBoxBirthYear.Name = "textBoxBirthYear";
-            this.textBoxBirthYear.Size = new System.Drawing.Size(141, 20);
-            this.textBoxBirthYear.TabIndex = 8;
-            // 
-            // textBoxGPA
-            // 
-            this.textBoxGPA.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBoxGPA.Location = new System.Drawing.Point(100, 161);
-            this.textBoxGPA.Name = "textBoxGPA";
-            this.textBoxGPA.Size = new System.Drawing.Size(141, 20);
-            this.textBoxGPA.TabIndex = 9;
-            // 
-            // textBoxHometown
-            // 
-            this.textBoxHometown.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBoxHometown.Location = new System.Drawing.Point(100, 210);
-            this.textBoxHometown.Name = "textBoxHometown";
-            this.textBoxHometown.Size = new System.Drawing.Size(141, 20);
-            this.textBoxHometown.TabIndex = 10;
-            // 
             // comboBoxClass
             // 
             this.comboBoxClass.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -248,6 +211,43 @@
             this.comboBoxClass.Size = new System.Drawing.Size(63, 21);
             this.comboBoxClass.TabIndex = 11;
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.buttonAdd, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.buttonCancel, 1, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(300, 94);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.buttonAdd.Location = new System.Drawing.Point(21, 23);
+            this.buttonAdd.Margin = new System.Windows.Forms.Padding(20);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(109, 47);
+            this.buttonAdd.TabIndex = 0;
+            this.buttonAdd.Text = "Thêm";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.buttonCancel.Location = new System.Drawing.Point(170, 23);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(20);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(109, 47);
+            this.buttonCancel.TabIndex = 1;
+            this.buttonCancel.Text = "Hủy";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            // 
             // FormAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -255,6 +255,7 @@
             this.ClientSize = new System.Drawing.Size(300, 396);
             this.Controls.Add(this.splitContainer1);
             this.Name = "FormAdd";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm sinh viên";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

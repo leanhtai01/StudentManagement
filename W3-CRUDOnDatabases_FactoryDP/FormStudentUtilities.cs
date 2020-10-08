@@ -17,6 +17,9 @@ namespace W3_CRUDOnDatabases_FactoryDP
         DbProviderFactory dbProvider;
         DbConnection dbConnection;
 
+        /// <summary>
+        /// establish a connection to database
+        /// </summary>
         private void CreateConnection()
         {
             providerName = ConfigurationManager.AppSettings["ProviderName"];
@@ -26,6 +29,13 @@ namespace W3_CRUDOnDatabases_FactoryDP
             dbConnection.ConnectionString = ConfigurationManager.ConnectionStrings[connectionStringName].ConnectionString;
         }
 
+        /// <summary>
+        /// get data from database
+        /// </summary>
+        /// <param name="dbConn"></param>
+        /// <param name="command"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
         private DataTable GetData(DbConnection dbConn, string command, params DbParameter[] parameters)
         {
             // declare variables

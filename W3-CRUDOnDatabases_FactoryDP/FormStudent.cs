@@ -33,11 +33,20 @@ namespace W3_CRUDOnDatabases_FactoryDP
             FillDataGridViewStudent(comboBoxClass.SelectedValue.ToString());
         }
 
+        /// <summary>
+        /// re-fill data grid every time user change class
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ComboBoxClass_SelectedValueChanged(object sender, EventArgs e)
         {
             FillDataGridViewStudent(comboBoxClass.SelectedValue.ToString());
         }
 
+        /// <summary>
+        /// fill data grid with list of students based on given class ID
+        /// </summary>
+        /// <param name="classID"></param>
         private void FillDataGridViewStudent(string classID)
         {
             // declare variables

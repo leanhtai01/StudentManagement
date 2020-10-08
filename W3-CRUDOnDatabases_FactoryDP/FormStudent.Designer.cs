@@ -144,10 +144,12 @@
             // 
             this.dataGridViewStudent.AllowUserToAddRows = false;
             this.dataGridViewStudent.AllowUserToDeleteRows = false;
+            this.dataGridViewStudent.AllowUserToResizeRows = false;
             this.dataGridViewStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewStudent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewStudent.Location = new System.Drawing.Point(3, 16);
             this.dataGridViewStudent.Name = "dataGridViewStudent";
+            this.dataGridViewStudent.ReadOnly = true;
             this.dataGridViewStudent.RowHeadersVisible = false;
             this.dataGridViewStudent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewStudent.Size = new System.Drawing.Size(781, 370);

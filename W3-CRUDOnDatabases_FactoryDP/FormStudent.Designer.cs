@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.dataGridViewStudent = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBoxClass = new System.Windows.Forms.ComboBox();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
-            this.comboBoxClass = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dataGridViewStudent = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudent)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudent)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -65,29 +65,39 @@
             this.splitContainer1.SplitterDistance = 57;
             this.splitContainer1.TabIndex = 0;
             // 
-            // dataGridViewStudent
+            // flowLayoutPanel1
             // 
-            this.dataGridViewStudent.AllowUserToAddRows = false;
-            this.dataGridViewStudent.AllowUserToDeleteRows = false;
-            this.dataGridViewStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewStudent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewStudent.Location = new System.Drawing.Point(3, 16);
-            this.dataGridViewStudent.Name = "dataGridViewStudent";
-            this.dataGridViewStudent.RowHeadersVisible = false;
-            this.dataGridViewStudent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewStudent.Size = new System.Drawing.Size(781, 370);
-            this.dataGridViewStudent.TabIndex = 0;
+            this.flowLayoutPanel1.Controls.Add(this.label1);
+            this.flowLayoutPanel1.Controls.Add(this.comboBoxClass);
+            this.flowLayoutPanel1.Controls.Add(this.buttonAdd);
+            this.flowLayoutPanel1.Controls.Add(this.buttonUpdate);
+            this.flowLayoutPanel1.Controls.Add(this.buttonDelete);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(787, 57);
+            this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // groupBox1
+            // label1
             // 
-            this.groupBox1.Controls.Add(this.dataGridViewStudent);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(787, 389);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Danh sách sinh viên";
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Lớp học:";
+            // 
+            // comboBoxClass
+            // 
+            this.comboBoxClass.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxClass.FormattingEnabled = true;
+            this.comboBoxClass.Location = new System.Drawing.Point(58, 17);
+            this.comboBoxClass.Name = "comboBoxClass";
+            this.comboBoxClass.Size = new System.Drawing.Size(88, 21);
+            this.comboBoxClass.TabIndex = 1;
+            this.comboBoxClass.SelectedValueChanged += new System.EventHandler(this.ComboBoxClass_SelectedValueChanged);
             // 
             // buttonAdd
             // 
@@ -119,38 +129,29 @@
             this.buttonDelete.Text = "Xóa sinh viên";
             this.buttonDelete.UseVisualStyleBackColor = true;
             // 
-            // comboBoxClass
+            // groupBox1
             // 
-            this.comboBoxClass.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxClass.FormattingEnabled = true;
-            this.comboBoxClass.Location = new System.Drawing.Point(58, 17);
-            this.comboBoxClass.Name = "comboBoxClass";
-            this.comboBoxClass.Size = new System.Drawing.Size(88, 21);
-            this.comboBoxClass.TabIndex = 1;
+            this.groupBox1.Controls.Add(this.dataGridViewStudent);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(787, 389);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Danh sách sinh viên";
             // 
-            // label1
+            // dataGridViewStudent
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Lớp học:";
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.label1);
-            this.flowLayoutPanel1.Controls.Add(this.comboBoxClass);
-            this.flowLayoutPanel1.Controls.Add(this.buttonAdd);
-            this.flowLayoutPanel1.Controls.Add(this.buttonUpdate);
-            this.flowLayoutPanel1.Controls.Add(this.buttonDelete);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(787, 57);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.dataGridViewStudent.AllowUserToAddRows = false;
+            this.dataGridViewStudent.AllowUserToDeleteRows = false;
+            this.dataGridViewStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewStudent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewStudent.Location = new System.Drawing.Point(3, 16);
+            this.dataGridViewStudent.Name = "dataGridViewStudent";
+            this.dataGridViewStudent.RowHeadersVisible = false;
+            this.dataGridViewStudent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewStudent.Size = new System.Drawing.Size(781, 370);
+            this.dataGridViewStudent.TabIndex = 0;
             // 
             // FormStudent
             // 
@@ -161,14 +162,15 @@
             this.Name = "FormStudent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý sinh viên";
+            this.Load += new System.EventHandler(this.FormStudent_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudent)).EndInit();
-            this.groupBox1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudent)).EndInit();
             this.ResumeLayout(false);
 
         }

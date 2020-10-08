@@ -14,24 +14,23 @@ namespace W3_CRUDOnDatabases_FactoryDP
 {
     public partial class FormStudent : Form
     {
+        BusinessLogic businessLogic;
+
         public FormStudent()
         {
+            businessLogic = new BusinessLogic();
+
             InitializeComponent();
         }
 
         private void FormStudent_Load(object sender, EventArgs e)
         {
-            // declare variable
-            string command = "SELECT * FROM LopHoc;";
-
-            CreateConnection();
-
-            comboBoxClass.DataSource = GetData(dbConnection, command);
+            comboBoxClass.DataSource = businessLogic.GetClassList();
             comboBoxClass.DisplayMember = "TenLopHoc";
             comboBoxClass.ValueMember = "LopHocID";
 
             FillDataGridViewStudent(comboBoxClass.SelectedValue.ToString());
-        }
+        } // end method FormStudent_Load
 
         /// <summary>
         /// re-fill data grid every time user change class
@@ -41,25 +40,15 @@ namespace W3_CRUDOnDatabases_FactoryDP
         private void ComboBoxClass_SelectedValueChanged(object sender, EventArgs e)
         {
             FillDataGridViewStudent(comboBoxClass.SelectedValue.ToString());
-        }
+        } // end method ComboBoxClass_SelectedValueChanged
 
         /// <summary>
         /// fill data grid with list of students based on given class ID
         /// </summary>
-        /// <param name="classID"></param>
-        private void FillDataGridViewStudent(string classID)
+        /// <param name="classId"></param>
+        private void FillDataGridViewStudent(string classId)
         {
-            // declare variables
-            string command = "SELECT * FROM HocSinh WHERE LopHocID = @classID;";
-            List<DbParameter> listParameters = new List<DbParameter>();
-            DbParameter parameter = dbProvider.CreateParameter();
-
-            // add parameter
-            parameter.ParameterName = "@classID";
-            parameter.Value = classID;
-            listParameters.Add(parameter);
-
-            dataGridViewStudent.DataSource = GetData(dbConnection, command, listParameters.ToArray());
+            dataGridViewStudent.DataSource = businessLogic.GetStudentListByClassId(classId);
             dataGridViewStudent.Columns["HocSinhID"].HeaderText = "MSSV";
             dataGridViewStudent.Columns["TenHocSinh"].HeaderText = "Tên học sinh";
             dataGridViewStudent.Columns["NamSinh"].HeaderText = "Năm sinh";
@@ -68,6 +57,6 @@ namespace W3_CRUDOnDatabases_FactoryDP
             dataGridViewStudent.Columns["LopHocID"].HeaderText = "Mã lớp học";
             dataGridViewStudent.Columns["TenHocSinh"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewStudent.Columns["QueQuan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-        }
+        } // end method FillDataGridViewStudent
     }
 }

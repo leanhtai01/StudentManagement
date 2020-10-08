@@ -67,6 +67,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogic.cs" />
+    <Compile Include="DataAccess.cs" />
     <Compile Include="FormAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,9 +80,6 @@
     </Compile>
     <Compile Include="FormStudent.Designer.cs">
       <DependentUpon>FormStudent.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormStudentUtilities.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormUpdate.cs">
       <SubType>Form</SubType>

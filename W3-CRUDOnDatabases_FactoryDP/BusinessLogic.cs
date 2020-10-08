@@ -45,6 +45,6 @@ namespace W3_CRUDOnDatabases_FactoryDP
             string commandText = "SELECT * FROM LopHoc;";
 
             return dataAccess.GetDataTable(commandText);
-        }
+        } // end method GetClassList
     }
 }

@@ -128,6 +128,7 @@
             this.textBoxBirthYear.Size = new System.Drawing.Size(141, 20);
             this.textBoxBirthYear.TabIndex = 8;
             this.textBoxBirthYear.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.textBoxBirthYear.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxBirthYear_KeyPress);
             // 
             // textBoxName
             // 

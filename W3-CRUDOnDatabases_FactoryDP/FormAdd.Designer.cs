@@ -106,6 +106,7 @@
             // 
             this.textBoxHometown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBoxHometown.Location = new System.Drawing.Point(100, 210);
+            this.textBoxHometown.MaxLength = 50;
             this.textBoxHometown.Name = "textBoxHometown";
             this.textBoxHometown.Size = new System.Drawing.Size(141, 20);
             this.textBoxHometown.TabIndex = 10;
@@ -135,6 +136,7 @@
             // 
             this.textBoxName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBoxName.Location = new System.Drawing.Point(100, 63);
+            this.textBoxName.MaxLength = 50;
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(141, 20);
             this.textBoxName.TabIndex = 7;
@@ -204,6 +206,7 @@
             // 
             this.textBoxId.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBoxId.Location = new System.Drawing.Point(100, 14);
+            this.textBoxId.MaxLength = 10;
             this.textBoxId.Name = "textBoxId";
             this.textBoxId.Size = new System.Drawing.Size(141, 20);
             this.textBoxId.TabIndex = 6;

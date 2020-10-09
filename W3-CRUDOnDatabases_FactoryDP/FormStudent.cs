@@ -63,7 +63,30 @@ namespace W3_CRUDOnDatabases_FactoryDP
         {
             FormAdd formAdd = new FormAdd();
 
+            formAdd.StudentAdded += OnStudentAdded;
             formAdd.Show();
-        }
+        } // end method ButtonAdd_Click
+
+        /// <summary>
+        /// re-fill data grid when student added
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OnStudentAdded(object sender, EventArgs e)
+        {
+            FillDataGridViewStudent(comboBoxClass.SelectedValue.ToString());
+        } // end method OnStudentAdded
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewStudent.SelectedRows.Count > 0)
+            {
+                string studentId = dataGridViewStudent.SelectedRows[0].Cells["HocSinhID"].Value.ToString();
+
+                businessLogic.DeleteStudent(studentId);
+
+                FillDataGridViewStudent(comboBoxClass.SelectedValue.ToString());
+            }
+        } // end method buttonDelete_Click
     }
 }

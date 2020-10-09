@@ -37,7 +37,7 @@ namespace W3_CRUDOnDatabases_FactoryDP
             DataTable dataTable = new DataTable();
             DbCommand command = Provider.CreateCommand();
 
-            // add parameters to SqlCommand
+            // add parameters to DbCommand
             command.Connection = Connection;
             command.CommandText = commandText;
             command.CommandType = CommandType.Text;
@@ -49,5 +49,41 @@ namespace W3_CRUDOnDatabases_FactoryDP
 
             return dataTable;
         } // end method GetData
+
+        public object ExecuteScalar(string commandText, params DbParameter[] dbParameters)
+        {
+            DbCommand command = Provider.CreateCommand();
+            object obj = null;
+
+            // add parameters to DbCommand
+            command.Connection = Connection;
+            command.CommandText = commandText;
+            command.CommandType = CommandType.Text;
+            command.Parameters.AddRange(dbParameters);
+
+            Connection.Open();
+            obj = command.ExecuteScalar();
+            Connection.Close();
+
+            return obj;
+        } // end method ExecuteScalar
+
+        public int ExecuteNonQuery(string commandText, DbParameter[] dbParameters)
+        {
+            DbCommand command = Provider.CreateCommand();
+            int numOfRowsAffected;
+
+            // add parameters to DbCommand
+            command.Connection = Connection;
+            command.CommandText = commandText;
+            command.CommandType = CommandType.Text;
+            command.Parameters.AddRange(dbParameters);
+
+            Connection.Open();
+            numOfRowsAffected = command.ExecuteNonQuery();
+            Connection.Close();
+
+            return numOfRowsAffected;
+        } // end method ExecuteNonQuery
     }
 }

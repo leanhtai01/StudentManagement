@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,8 @@ namespace W3_CRUDOnDatabases_FactoryDP
     public partial class FormAdd : Form
     {
         BusinessLogic businessLogic;
+        public delegate void StudentAddedEventHandler(object sender, EventArgs e);
+        public event StudentAddedEventHandler StudentAdded;
 
         public FormAdd()
         {
@@ -54,7 +57,11 @@ namespace W3_CRUDOnDatabases_FactoryDP
             Close();
         }
 
-        private Student GetStudent()
+        /// <summary>
+        /// create a Student using information from UI
+        /// </summary>
+        /// <returns></returns>
+        private Student GetStudentFromUI()
         {
             return new Student
             {
@@ -96,6 +103,20 @@ namespace W3_CRUDOnDatabases_FactoryDP
             {
                 e.Handled = true;
             }
-        }
+        } // end method TextBoxGPA_KeyPress
+
+        private void ButtonAdd_Click(object sender, EventArgs e)
+        {
+            if (businessLogic.IsStudentExists(textBoxId.Text.Trim()))
+            {
+                MessageBox.Show("Học sinh đã tồn tại! Không thể thêm!");
+            }
+            else
+            {
+                businessLogic.InsertStudent(GetStudentFromUI());
+                StudentAdded?.Invoke(this, EventArgs.Empty);
+                MessageBox.Show("Thêm học sinh thành công!");
+            }
+        } // end method ButtonAdd_Click
     }
 }

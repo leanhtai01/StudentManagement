@@ -244,6 +244,7 @@
             this.buttonAdd.TabIndex = 0;
             this.buttonAdd.Text = "Thêm";
             this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
             // 
             // buttonCancel
             // 

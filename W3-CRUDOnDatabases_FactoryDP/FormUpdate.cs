@@ -38,6 +38,7 @@ namespace W3_CRUDOnDatabases_FactoryDP
             textBoxBirthYear.Text = student.BirthYear.ToString();
             textBoxGPA.Text = student.GPA.ToString();
             textBoxHometown.Text = student.Hometown;
+            comboBoxClass.SelectedValue = student.ClassId;
         }
 
         /// <summary>

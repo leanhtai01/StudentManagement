@@ -58,5 +58,12 @@ namespace W3_CRUDOnDatabases_FactoryDP
             dataGridViewStudent.Columns["TenHocSinh"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewStudent.Columns["QueQuan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         } // end method FillDataGridViewStudent
+
+        private void ButtonAdd_Click(object sender, EventArgs e)
+        {
+            FormAdd formAdd = new FormAdd();
+
+            formAdd.Show();
+        }
     }
 }

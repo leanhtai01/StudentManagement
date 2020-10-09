@@ -108,6 +108,7 @@
             this.buttonAdd.TabIndex = 0;
             this.buttonAdd.Text = "Thêm sinh viên";
             this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
             // 
             // buttonUpdate
             // 

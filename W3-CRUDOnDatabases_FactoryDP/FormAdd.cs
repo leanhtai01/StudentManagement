@@ -12,9 +12,59 @@ namespace W3_CRUDOnDatabases_FactoryDP
 {
     public partial class FormAdd : Form
     {
+        BusinessLogic businessLogic;
+
         public FormAdd()
         {
+            businessLogic = new BusinessLogic();
+
             InitializeComponent();
+        }
+
+        private void FormAdd_Load(object sender, EventArgs e)
+        {
+            buttonAdd.Enabled = false;
+
+            comboBoxClass.DataSource = businessLogic.GetClassList();
+            comboBoxClass.DisplayMember = "TenLopHoc";
+            comboBoxClass.ValueMember = "LopHocID";
+        }
+
+        /// <summary>
+        /// make sure user fill all information
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TextBox_TextChanged(object sender, EventArgs e)
+        {
+            buttonAdd.Enabled = true;
+
+            foreach (TextBox textBox in tableLayoutPanel1.Controls.OfType<TextBox>())
+            {
+                if (string.IsNullOrEmpty(textBox.Text.Trim()))
+                {
+                    buttonAdd.Enabled = false;
+                    break;
+                }
+            }
+        } // end method TextBox_TextChanged
+
+        private void ButtonCancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private Student GetStudent()
+        {
+            return new Student
+            {
+                Id = textBoxId.Text.Trim(),
+                Name = textBoxName.Text.Trim(),
+                BirthYear = Int32.Parse(textBoxBirthYear.Text),
+                GPA = Double.Parse(textBoxGPA.Text),
+                Hometown = textBoxHometown.Text.Trim(),
+                ClassId = comboBoxClass.SelectedValue.ToString()
+            };
         }
     }
 }

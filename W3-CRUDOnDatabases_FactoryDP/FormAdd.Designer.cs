@@ -119,6 +119,7 @@
             this.textBoxGPA.Size = new System.Drawing.Size(141, 20);
             this.textBoxGPA.TabIndex = 9;
             this.textBoxGPA.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.textBoxGPA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxGPA_KeyPress);
             // 
             // textBoxBirthYear
             // 

@@ -138,7 +138,7 @@
             this.buttonLoad.TabIndex = 0;
             this.buttonLoad.Text = "Tải danh sách";
             this.buttonLoad.UseVisualStyleBackColor = true;
-            this.buttonLoad.Click += new System.EventHandler(this.buttonLoad_Click);
+            this.buttonLoad.Click += new System.EventHandler(this.ButtonLoad_Click);
             // 
             // groupBoxStudent
             // 

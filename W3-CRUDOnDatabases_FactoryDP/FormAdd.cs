@@ -13,13 +13,13 @@ namespace W3_CRUDOnDatabases_FactoryDP
 {
     public partial class FormAdd : Form
     {
-        BusinessLogic businessLogic;
+        StudentBusinessLogic businessLogic;
         public delegate void StudentAddedEventHandler(object sender, EventArgs e);
         public event StudentAddedEventHandler StudentAdded;
 
         public FormAdd()
         {
-            businessLogic = new BusinessLogic();
+            businessLogic = new StudentBusinessLogic();
 
             InitializeComponent();
         }
@@ -61,7 +61,7 @@ namespace W3_CRUDOnDatabases_FactoryDP
         /// create a Student using information from UI
         /// </summary>
         /// <returns></returns>
-        private Student GetStudentFromUI()
+        private Student GetStudent()
         {
             return new Student
             {
@@ -113,7 +113,7 @@ namespace W3_CRUDOnDatabases_FactoryDP
             }
             else
             {
-                businessLogic.InsertStudent(GetStudentFromUI());
+                businessLogic.InsertStudent(GetStudent());
                 StudentAdded?.Invoke(this, EventArgs.Empty);
                 MessageBox.Show("Thêm học sinh thành công!");
             }

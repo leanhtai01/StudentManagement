@@ -40,7 +40,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBoxID = new System.Windows.Forms.TextBox();
+            this.textBoxId = new System.Windows.Forms.TextBox();
             this.comboBoxClass = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonUpdate = new System.Windows.Forms.Button();
@@ -87,7 +87,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxID, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxId, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.comboBoxClass, 1, 5);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -109,6 +109,7 @@
             this.textBoxHometown.Name = "textBoxHometown";
             this.textBoxHometown.Size = new System.Drawing.Size(141, 20);
             this.textBoxHometown.TabIndex = 10;
+            this.textBoxHometown.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // textBoxGPA
             // 
@@ -117,6 +118,8 @@
             this.textBoxGPA.Name = "textBoxGPA";
             this.textBoxGPA.Size = new System.Drawing.Size(141, 20);
             this.textBoxGPA.TabIndex = 9;
+            this.textBoxGPA.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.textBoxGPA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxGPA_KeyPress);
             // 
             // textBoxBirthYear
             // 
@@ -125,6 +128,8 @@
             this.textBoxBirthYear.Name = "textBoxBirthYear";
             this.textBoxBirthYear.Size = new System.Drawing.Size(141, 20);
             this.textBoxBirthYear.TabIndex = 8;
+            this.textBoxBirthYear.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.textBoxBirthYear.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxBirthYear_KeyPress);
             // 
             // textBoxName
             // 
@@ -133,6 +138,7 @@
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(141, 20);
             this.textBoxName.TabIndex = 7;
+            this.textBoxName.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // label1
             // 
@@ -194,13 +200,14 @@
             this.label6.TabIndex = 5;
             this.label6.Text = "Lớp:";
             // 
-            // textBoxID
+            // textBoxId
             // 
-            this.textBoxID.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBoxID.Location = new System.Drawing.Point(100, 14);
-            this.textBoxID.Name = "textBoxID";
-            this.textBoxID.Size = new System.Drawing.Size(141, 20);
-            this.textBoxID.TabIndex = 6;
+            this.textBoxId.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBoxId.Location = new System.Drawing.Point(100, 14);
+            this.textBoxId.Name = "textBoxId";
+            this.textBoxId.ReadOnly = true;
+            this.textBoxId.Size = new System.Drawing.Size(141, 20);
+            this.textBoxId.TabIndex = 6;
             // 
             // comboBoxClass
             // 
@@ -236,6 +243,7 @@
             this.buttonUpdate.TabIndex = 0;
             this.buttonUpdate.Text = "Cập nhật";
             this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.ButtonUpdate_Click);
             // 
             // buttonCancel
             // 
@@ -247,6 +255,7 @@
             this.buttonCancel.TabIndex = 1;
             this.buttonCancel.Text = "Hủy";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
             // 
             // FormUpdate
             // 
@@ -257,6 +266,7 @@
             this.Name = "FormUpdate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sửa thông tin sinh viên";
+            this.Load += new System.EventHandler(this.FormUpdate_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -282,7 +292,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBoxID;
+        private System.Windows.Forms.TextBox textBoxId;
         private System.Windows.Forms.ComboBox comboBoxClass;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button buttonUpdate;

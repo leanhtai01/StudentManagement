@@ -14,11 +14,11 @@ namespace W3_CRUDOnDatabases_FactoryDP
 {
     public partial class FormStudent : Form
     {
-        BusinessLogic businessLogic;
+        StudentBusinessLogic businessLogic;
 
         public FormStudent()
         {
-            businessLogic = new BusinessLogic();
+            businessLogic = new StudentBusinessLogic();
 
             InitializeComponent();
         }
@@ -63,21 +63,11 @@ namespace W3_CRUDOnDatabases_FactoryDP
         {
             FormAdd formAdd = new FormAdd();
 
-            formAdd.StudentAdded += OnStudentAdded;
+            formAdd.StudentAdded += (mySender, myE) => FillDataGridViewStudent(comboBoxClass.SelectedValue.ToString());
             formAdd.Show();
         } // end method ButtonAdd_Click
 
-        /// <summary>
-        /// re-fill data grid when student added
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void OnStudentAdded(object sender, EventArgs e)
-        {
-            FillDataGridViewStudent(comboBoxClass.SelectedValue.ToString());
-        } // end method OnStudentAdded
-
-        private void buttonDelete_Click(object sender, EventArgs e)
+        private void ButtonDelete_Click(object sender, EventArgs e)
         {
             if (dataGridViewStudent.SelectedRows.Count > 0)
             {
@@ -88,5 +78,17 @@ namespace W3_CRUDOnDatabases_FactoryDP
                 FillDataGridViewStudent(comboBoxClass.SelectedValue.ToString());
             }
         } // end method buttonDelete_Click
+
+        private void ButtonUpdate_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewStudent.SelectedRows.Count > 0)
+            {
+                string studentId = dataGridViewStudent.SelectedRows[0].Cells["HocSinhID"].Value.ToString();
+                FormUpdate formUpdate = new FormUpdate(businessLogic.GetStudent(studentId));
+
+                formUpdate.StudentUpdated += (mySender, myE) => FillDataGridViewStudent(comboBoxClass.SelectedValue.ToString());
+                formUpdate.Show();
+            }
+        } // end method buttonUpdate_Click
     }
 }

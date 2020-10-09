@@ -85,5 +85,22 @@ namespace W3_CRUDOnDatabases_FactoryDP
 
             return numOfRowsAffected;
         } // end method ExecuteNonQuery
+
+        public DbDataReader ExecuteReader(string commandText, DbParameter[] dbParameters)
+        {
+            DbCommand command = Provider.CreateCommand();
+            DbDataReader reader;
+
+            // add parameters to DbCommand
+            command.Connection = Connection;
+            command.CommandText = commandText;
+            command.CommandType = CommandType.Text;
+            command.Parameters.AddRange(dbParameters);
+
+            Connection.Open();
+            reader = command.ExecuteReader();
+
+            return reader;
+        }
     }
 }

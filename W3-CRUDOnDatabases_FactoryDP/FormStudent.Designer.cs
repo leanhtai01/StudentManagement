@@ -119,6 +119,7 @@
             this.buttonUpdate.TabIndex = 1;
             this.buttonUpdate.Text = "Sửa thông tin sinh viên";
             this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.ButtonUpdate_Click);
             // 
             // buttonDelete
             // 
@@ -129,7 +130,7 @@
             this.buttonDelete.TabIndex = 2;
             this.buttonDelete.Text = "Xóa sinh viên";
             this.buttonDelete.UseVisualStyleBackColor = true;
-            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            this.buttonDelete.Click += new System.EventHandler(this.ButtonDelete_Click);
             // 
             // groupBox1
             // 

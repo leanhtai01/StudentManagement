@@ -48,7 +48,7 @@ namespace StudentManagement
             dataGridViewStudent.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
-        private void buttonLoad_Click(object sender, EventArgs e)
+        private void ButtonLoad_Click(object sender, EventArgs e)
         {
             LoadDataFromFile();
             ReFillData(listStudents);

@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace W3_CRUDOnDatabases_FactoryDP
 {
-    public class BusinessLogic
+    public class StudentBusinessLogic
     {
         private DataAccess dataAccess;
 
-        public BusinessLogic()
+        public StudentBusinessLogic()
         {
             dataAccess = new DataAccess();
         }
@@ -100,6 +100,65 @@ namespace W3_CRUDOnDatabases_FactoryDP
 
             return dataAccess.ExecuteNonQuery(commandText, listParameters);
         } // end method InsertStudent
+
+        public int UpdateStudent(Student student)
+        {
+            string commandText =
+                "UPDATE HocSinh "
+                + "SET TenHocSinh = @Name, NamSinh = @BirthYear, DiemTrungBinh = @GPA, QueQuan = @Hometown, LopHocID = @ClassId "
+                + "WHERE HocSinhID = @Id;";
+            DbParameter[] listParameters = new DbParameter[6];
+
+            // create parameters
+            for (int i = 0; i < listParameters.Length; i++)
+            {
+                listParameters[i] = dataAccess.Provider.CreateParameter();
+            }
+
+            // add parameters
+            listParameters[0].ParameterName = "@Id";
+            listParameters[0].Value = student.Id;
+            listParameters[1].ParameterName = "@Name";
+            listParameters[1].Value = student.Name;
+            listParameters[2].ParameterName = "@BirthYear";
+            listParameters[2].Value = student.BirthYear;
+            listParameters[3].ParameterName = "@GPA";
+            listParameters[3].Value = student.GPA;
+            listParameters[4].ParameterName = "@Hometown";
+            listParameters[4].Value = student.Hometown;
+            listParameters[5].ParameterName = "@ClassId";
+            listParameters[5].Value = student.ClassId;
+
+            return dataAccess.ExecuteNonQuery(commandText, listParameters);
+        }
+
+        public Student GetStudent(string studentId)
+        {
+            string commandText = "SELECT * FROM HocSinh WHERE HocSinhID = @studentId;";
+            DbParameter[] listParameters = new DbParameter[1];
+            Student student = new Student();
+            DbDataReader reader;
+
+            listParameters[0] = dataAccess.Provider.CreateParameter();
+            listParameters[0].ParameterName = "@studentId";
+            listParameters[0].Value = studentId;
+
+            reader = dataAccess.ExecuteReader(commandText, listParameters);
+
+            while (reader.Read())
+            {
+                student.Id = reader["HocSinhID"].ToString();
+                student.Name = reader["TenHocSinh"].ToString();
+                student.BirthYear = int.Parse(reader["NamSinh"].ToString());
+                student.GPA = double.Parse(reader["DiemTrungBinh"].ToString());
+                student.Hometown = reader["QueQuan"].ToString();
+                student.ClassId = reader["LopHocID"].ToString();
+            }
+
+            dataAccess.Connection.Close();
+
+            return student;
+        }
 
         /// <summary>
         /// delete a student from database

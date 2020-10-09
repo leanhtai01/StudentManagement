@@ -67,7 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessLogic.cs" />
+    <Compile Include="StudentBusinessLogic.cs" />
     <Compile Include="DataAccess.cs" />
     <Compile Include="FormAdd.cs">
       <SubType>Form</SubType>

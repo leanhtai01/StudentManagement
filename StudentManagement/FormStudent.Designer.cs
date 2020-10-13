@@ -1,4 +1,4 @@
-﻿namespace W3_CRUDOnDatabases_FactoryDP
+﻿namespace StudentManagement
 {
     partial class FormStudent
     {

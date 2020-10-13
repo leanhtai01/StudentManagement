@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace W3_CRUDOnDatabases_FactoryDP
+namespace StudentManagement
 {
     public partial class FormAdd : Form
     {

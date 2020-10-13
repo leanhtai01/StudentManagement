@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace W3_CRUDOnDatabases_FactoryDP
+namespace StudentManagement
 {
     public class StudentBusinessLogic
     {

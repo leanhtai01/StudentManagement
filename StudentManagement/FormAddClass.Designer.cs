@@ -90,16 +90,17 @@
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(141, 20);
             this.textBoxName.TabIndex = 7;
+            this.textBoxName.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(54, 17);
+            this.label1.Location = new System.Drawing.Point(52, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.Size = new System.Drawing.Size(42, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "MSSV:";
+            this.label1.Text = "Mã lớp:";
             // 
             // label2
             // 
@@ -119,6 +120,7 @@
             this.textBoxId.Name = "textBoxId";
             this.textBoxId.Size = new System.Drawing.Size(141, 20);
             this.textBoxId.TabIndex = 6;
+            this.textBoxId.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // tableLayoutPanel2
             // 
@@ -145,6 +147,7 @@
             this.buttonAdd.TabIndex = 0;
             this.buttonAdd.Text = "Thêm";
             this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // buttonCancel
             // 
@@ -156,6 +159,7 @@
             this.buttonCancel.TabIndex = 1;
             this.buttonCancel.Text = "Hủy";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // FormAddClass
             // 
@@ -164,7 +168,9 @@
             this.ClientSize = new System.Drawing.Size(300, 192);
             this.Controls.Add(this.splitContainer1);
             this.Name = "FormAddClass";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm lớp học";
+            this.Load += new System.EventHandler(this.FormAddClass_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();

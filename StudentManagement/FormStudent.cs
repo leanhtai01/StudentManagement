@@ -27,17 +27,26 @@ namespace StudentManagement
 
         private void FormStudent_Load(object sender, EventArgs e)
         {
-            LoadComboBoxClass();
-            textBoxClass.Text = comboBoxClass.Text;
+            LoadClasses();
 
             FillDataGridViewStudent(comboBoxClass.SelectedValue.ToString());
         } // end method FormStudent_Load
 
-        public void LoadComboBoxClass()
+        public void LoadClasses()
         {
             comboBoxClass.DataSource = classBL.GetClassList();
             comboBoxClass.DisplayMember = "TenLopHoc";
             comboBoxClass.ValueMember = "LopHocID";
+            textBoxClass.Text = comboBoxClass.Text;
+        }
+
+        public void LoadClasses(object value)
+        {
+            comboBoxClass.DataSource = classBL.GetClassList();
+            comboBoxClass.DisplayMember = "TenLopHoc";
+            comboBoxClass.ValueMember = "LopHocID";
+            comboBoxClass.SelectedValue = value;
+            textBoxClass.Text = comboBoxClass.Text;
         }
 
         /// <summary>
@@ -117,11 +126,18 @@ namespace StudentManagement
             
             c.Name = textBoxClass.Text;
             classBL.UpdateClass(c);
-            LoadComboBoxClass();
 
             // reload class data
-            comboBoxClass.SelectedValue = currentClassId;
-            textBoxClass.Text = comboBoxClass.Text;
+            LoadClasses(currentClassId);
+        }
+
+        private void buttonAddClass_Click(object sender, EventArgs e)
+        {
+            FormAddClass formAddClass = new FormAddClass();
+            string currentClassId = comboBoxClass.SelectedValue.ToString();
+
+            formAddClass.ClassAdded += (_, myE) => LoadClasses(currentClassId);
+            formAddClass.Show();
         }
     }
 }

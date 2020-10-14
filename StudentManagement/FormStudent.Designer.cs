@@ -39,10 +39,10 @@
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.comboBoxClass = new System.Windows.Forms.ComboBox();
             this.buttonAddClass = new System.Windows.Forms.Button();
-            this.textBoxClass = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonUpdateClass = new System.Windows.Forms.Button();
             this.buttonDeleteClass = new System.Windows.Forms.Button();
+            this.textBoxClass = new System.Windows.Forms.TextBox();
             this.groupBoxStudent = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonAddStudent = new System.Windows.Forms.Button();
@@ -202,16 +202,7 @@
             this.buttonAddClass.TabIndex = 2;
             this.buttonAddClass.Text = "+";
             this.buttonAddClass.UseVisualStyleBackColor = true;
-            // 
-            // textBoxClass
-            // 
-            this.textBoxClass.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBoxClass.Location = new System.Drawing.Point(5, 56);
-            this.textBoxClass.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
-            this.textBoxClass.Name = "textBoxClass";
-            this.textBoxClass.Size = new System.Drawing.Size(116, 20);
-            this.textBoxClass.TabIndex = 1;
-            this.textBoxClass.TextChanged += new System.EventHandler(this.TextBoxClass_TextChanged);
+            this.buttonAddClass.Click += new System.EventHandler(this.buttonAddClass_Click);
             // 
             // flowLayoutPanel3
             // 
@@ -241,6 +232,16 @@
             this.buttonDeleteClass.TabIndex = 1;
             this.buttonDeleteClass.Text = "Xóa";
             this.buttonDeleteClass.UseVisualStyleBackColor = true;
+            // 
+            // textBoxClass
+            // 
+            this.textBoxClass.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBoxClass.Location = new System.Drawing.Point(5, 56);
+            this.textBoxClass.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.textBoxClass.Name = "textBoxClass";
+            this.textBoxClass.Size = new System.Drawing.Size(116, 20);
+            this.textBoxClass.TabIndex = 1;
+            this.textBoxClass.TextChanged += new System.EventHandler(this.TextBoxClass_TextChanged);
             // 
             // groupBoxStudent
             // 

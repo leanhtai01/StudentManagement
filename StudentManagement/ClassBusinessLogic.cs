@@ -74,5 +74,42 @@ namespace StudentManagement
 
             return c;
         }
+
+        public int InsertClass(Class c)
+        {
+            string commandText =
+                "INSERT INTO LopHoc (LopHocID, TenLopHoc) "
+                + "VALUES (@Id, @Name);";
+            DbParameter[] listParameters = new DbParameter[2];
+
+            // create parameters
+            for (int i = 0; i < listParameters.Length; i++)
+            {
+                listParameters[i] = dataAccess.Provider.CreateParameter();
+            }
+
+            // add parameters
+            listParameters[0].ParameterName = "@Id";
+            listParameters[0].Value = c.Id;
+            listParameters[1].ParameterName = "@Name";
+            listParameters[1].Value = c.Name;
+
+            return dataAccess.ExecuteNonQuery(commandText, listParameters);
+        }
+
+        public bool IsClassExists(string classId)
+        {
+            string commandText = "SELECT 1 FROM LopHoc WHERE LopHocId = @classId;";
+            DbParameter[] listParameters = new DbParameter[1];
+
+            // create parameters
+            listParameters[0] = dataAccess.Provider.CreateParameter();
+
+            // add parameters
+            listParameters[0].ParameterName = "@classId";
+            listParameters[0].Value = classId;
+
+            return dataAccess.ExecuteScalar(commandText, listParameters) != null;
+        }
     }
 }

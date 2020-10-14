@@ -240,6 +240,7 @@
             this.textBoxClass.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBoxClass.Location = new System.Drawing.Point(5, 56);
             this.textBoxClass.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.textBoxClass.MaxLength = 10;
             this.textBoxClass.Name = "textBoxClass";
             this.textBoxClass.Size = new System.Drawing.Size(116, 20);
             this.textBoxClass.TabIndex = 1;

@@ -12,14 +12,16 @@ namespace StudentManagement
 {
     public partial class FormUpdateStudent : Form
     {
-        StudentBusinessLogic businessLogic;
+        StudentBusinessLogic studentBL;
+        ClassBusinessLogic classBL;
         Student student;
         public delegate void StudentUpdatedEventHandler(object sender, EventArgs e);
         public event StudentUpdatedEventHandler StudentUpdated;
 
         public FormUpdateStudent(Student student)
         {
-            businessLogic = new StudentBusinessLogic();
+            studentBL = new StudentBusinessLogic();
+            classBL = new ClassBusinessLogic();
             this.student = student;
 
             InitializeComponent();
@@ -29,7 +31,7 @@ namespace StudentManagement
         {
             buttonUpdate.Enabled = true;
 
-            comboBoxClass.DataSource = businessLogic.GetClassList();
+            comboBoxClass.DataSource = classBL.GetClassList();
             comboBoxClass.DisplayMember = "TenLopHoc";
             comboBoxClass.ValueMember = "LopHocID";
 
@@ -88,7 +90,7 @@ namespace StudentManagement
 
         private void ButtonUpdate_Click(object sender, EventArgs e)
         {
-            businessLogic.UpdateStudent(GetStudent());
+            studentBL.UpdateStudent(GetStudent());
             StudentUpdated?.Invoke(this, EventArgs.Empty);
             MessageBox.Show("Cập nhật học sinh thành công!");
         }

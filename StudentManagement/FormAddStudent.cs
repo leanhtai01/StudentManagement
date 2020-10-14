@@ -13,13 +13,15 @@ namespace StudentManagement
 {
     public partial class FormAddStudent : Form
     {
-        StudentBusinessLogic businessLogic;
+        StudentBusinessLogic studentBL;
+        ClassBusinessLogic classBL;
         public delegate void StudentAddedEventHandler(object sender, EventArgs e);
         public event StudentAddedEventHandler StudentAdded;
 
         public FormAddStudent()
         {
-            businessLogic = new StudentBusinessLogic();
+            studentBL = new StudentBusinessLogic();
+            classBL = new ClassBusinessLogic();
 
             InitializeComponent();
         }
@@ -28,7 +30,7 @@ namespace StudentManagement
         {
             buttonAdd.Enabled = false;
 
-            comboBoxClass.DataSource = businessLogic.GetClassList();
+            comboBoxClass.DataSource = classBL.GetClassList();
             comboBoxClass.DisplayMember = "TenLopHoc";
             comboBoxClass.ValueMember = "LopHocID";
         }
@@ -107,13 +109,13 @@ namespace StudentManagement
 
         private void ButtonAdd_Click(object sender, EventArgs e)
         {
-            if (businessLogic.IsStudentExists(textBoxId.Text.Trim()))
+            if (studentBL.IsStudentExists(textBoxId.Text.Trim()))
             {
                 MessageBox.Show("Học sinh đã tồn tại! Không thể thêm!");
             }
             else
             {
-                businessLogic.InsertStudent(GetStudent());
+                studentBL.InsertStudent(GetStudent());
                 StudentAdded?.Invoke(this, EventArgs.Empty);
                 MessageBox.Show("Thêm học sinh thành công!");
             }

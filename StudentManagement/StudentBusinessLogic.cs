@@ -37,17 +37,6 @@ namespace StudentManagement
         } // end method GetStudentListByClassId
 
         /// <summary>
-        /// get class list
-        /// </summary>
-        /// <returns></returns>
-        public DataTable GetClassList()
-        {
-            string commandText = "SELECT * FROM LopHoc;";
-
-            return dataAccess.GetDataTable(commandText);
-        } // end method GetClassList
-
-        /// <summary>
         /// check whether student is exists
         /// </summary>
         /// <param name="studentId"></param>

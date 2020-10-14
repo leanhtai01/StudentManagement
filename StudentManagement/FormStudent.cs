@@ -15,17 +15,19 @@ namespace StudentManagement
     public partial class FormStudent : Form
     {
         StudentBusinessLogic studentBL;
+        ClassBusinessLogic classBL;
 
         public FormStudent()
         {
             studentBL = new StudentBusinessLogic();
+            classBL = new ClassBusinessLogic();
 
             InitializeComponent();
         }
 
         private void FormStudent_Load(object sender, EventArgs e)
         {
-            comboBoxClass.DataSource = studentBL.GetClassList();
+            comboBoxClass.DataSource = classBL.GetClassList();
             comboBoxClass.DisplayMember = "TenLopHoc";
             comboBoxClass.ValueMember = "LopHocID";
             textBoxClass.Text = comboBoxClass.Text;

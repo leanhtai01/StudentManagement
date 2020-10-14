@@ -28,6 +28,7 @@ namespace StudentManagement
             comboBoxClass.DataSource = businessLogic.GetClassList();
             comboBoxClass.DisplayMember = "TenLopHoc";
             comboBoxClass.ValueMember = "LopHocID";
+            textBoxClass.Text = comboBoxClass.Text;
 
             FillDataGridViewStudent(comboBoxClass.SelectedValue.ToString());
         } // end method FormStudent_Load
@@ -39,6 +40,7 @@ namespace StudentManagement
         /// <param name="e"></param>
         private void ComboBoxClass_SelectedValueChanged(object sender, EventArgs e)
         {
+            textBoxClass.Text = comboBoxClass.Text;
             FillDataGridViewStudent(comboBoxClass.SelectedValue.ToString());
         } // end method ComboBoxClass_SelectedValueChanged
 

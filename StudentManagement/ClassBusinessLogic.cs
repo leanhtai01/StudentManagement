@@ -111,5 +111,20 @@ namespace StudentManagement
 
             return dataAccess.ExecuteScalar(commandText, listParameters) != null;
         }
+
+        public int DeleteClass(string classId)
+        {
+            string commandText = "DELETE FROM LopHoc WHERE LopHocID = @classId";
+            DbParameter[] listParameters = new DbParameter[1];
+
+            // create parameters
+            listParameters[0] = dataAccess.Provider.CreateParameter();
+
+            // add parameters
+            listParameters[0].ParameterName = "@classId";
+            listParameters[0].Value = classId;
+
+            return dataAccess.ExecuteNonQuery(commandText, listParameters);
+        }
     }
 }

@@ -16,6 +16,7 @@ namespace StudentManagement
     {
         StudentBusinessLogic studentBL;
         ClassBusinessLogic classBL;
+        DataTable dataTableStudent;
 
         public FormStudent()
         {
@@ -28,7 +29,6 @@ namespace StudentManagement
         private void FormStudent_Load(object sender, EventArgs e)
         {
             LoadClasses();
-
             FillDataGridViewStudent(comboBoxClass.SelectedValue.ToString());
         } // end method FormStudent_Load
 
@@ -66,7 +66,8 @@ namespace StudentManagement
         /// <param name="classId"></param>
         private void FillDataGridViewStudent(string classId)
         {
-            dataGridViewStudent.DataSource = studentBL.GetStudentListByClassId(classId);
+            dataTableStudent = studentBL.GetStudentListByClassId(classId);
+            dataGridViewStudent.DataSource = dataTableStudent;
             dataGridViewStudent.Columns["HocSinhID"].HeaderText = "MSSV";
             dataGridViewStudent.Columns["TenHocSinh"].HeaderText = "Tên học sinh";
             dataGridViewStudent.Columns["NamSinh"].HeaderText = "Năm sinh";
@@ -138,6 +139,19 @@ namespace StudentManagement
 
             formAddClass.ClassAdded += (_, myE) => LoadClasses(currentClassId);
             formAddClass.Show();
+        }
+
+        private void buttonDeleteClass_Click(object sender, EventArgs e)
+        {
+            if (dataTableStudent != null && dataGridViewStudent.Rows.Count > 0)
+            {
+                MessageBox.Show("Không thể xóa lớp học! Lớp học này có học sinh!");
+            }
+            else
+            {
+                classBL.DeleteClass(comboBoxClass.SelectedValue.ToString());
+                LoadClasses();
+            }
         }
     }
 }

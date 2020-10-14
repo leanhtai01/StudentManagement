@@ -232,6 +232,7 @@
             this.buttonDeleteClass.TabIndex = 1;
             this.buttonDeleteClass.Text = "Xóa";
             this.buttonDeleteClass.UseVisualStyleBackColor = true;
+            this.buttonDeleteClass.Click += new System.EventHandler(this.buttonDeleteClass_Click);
             // 
             // textBoxClass
             // 

@@ -1,6 +1,6 @@
 ﻿namespace StudentManagement
 {
-    partial class FormAdd
+    partial class FormAddStudent
     {
         /// <summary>
         /// Required designer variable.

@@ -61,7 +61,7 @@ namespace StudentManagement
 
         private void ButtonAdd_Click(object sender, EventArgs e)
         {
-            FormAdd formAdd = new FormAdd();
+            FormAddStudent formAdd = new FormAddStudent();
 
             formAdd.StudentAdded += (mySender, myE) => FillDataGridViewStudent(comboBoxClass.SelectedValue.ToString());
             formAdd.Show();
@@ -84,7 +84,7 @@ namespace StudentManagement
             if (dataGridViewStudent.SelectedRows.Count > 0)
             {
                 string studentId = dataGridViewStudent.SelectedRows[0].Cells["HocSinhID"].Value.ToString();
-                FormUpdate formUpdate = new FormUpdate(businessLogic.GetStudent(studentId));
+                FormUpdateStudent formUpdate = new FormUpdateStudent(businessLogic.GetStudent(studentId));
 
                 formUpdate.StudentUpdated += (mySender, myE) => FillDataGridViewStudent(comboBoxClass.SelectedValue.ToString());
                 formUpdate.Show();

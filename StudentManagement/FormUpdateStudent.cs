@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace StudentManagement
 {
-    public partial class FormUpdate : Form
+    public partial class FormUpdateStudent : Form
     {
         StudentBusinessLogic businessLogic;
         Student student;
         public delegate void StudentUpdatedEventHandler(object sender, EventArgs e);
         public event StudentUpdatedEventHandler StudentUpdated;
 
-        public FormUpdate(Student student)
+        public FormUpdateStudent(Student student)
         {
             businessLogic = new StudentBusinessLogic();
             this.student = student;

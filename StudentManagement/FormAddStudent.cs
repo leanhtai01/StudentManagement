@@ -11,13 +11,13 @@ using System.Windows.Forms;
 
 namespace StudentManagement
 {
-    public partial class FormAdd : Form
+    public partial class FormAddStudent : Form
     {
         StudentBusinessLogic businessLogic;
         public delegate void StudentAddedEventHandler(object sender, EventArgs e);
         public event StudentAddedEventHandler StudentAdded;
 
-        public FormAdd()
+        public FormAddStudent()
         {
             businessLogic = new StudentBusinessLogic();
 

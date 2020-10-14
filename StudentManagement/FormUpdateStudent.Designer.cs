@@ -1,6 +1,6 @@
 ﻿namespace StudentManagement
 {
-    partial class FormUpdate
+    partial class FormUpdateStudent
     {
         /// <summary>
         /// Required designer variable.

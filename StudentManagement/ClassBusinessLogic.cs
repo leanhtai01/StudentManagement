@@ -17,6 +17,11 @@ namespace StudentManagement
             dataAccess = new DataAccess();
         }
 
+        public ClassBusinessLogic(string providerName, string connectionStringName)
+        {
+            dataAccess = new DataAccess(providerName, connectionStringName);
+        }
+
         /// <summary>
         /// get class list
         /// </summary>

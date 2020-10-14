@@ -16,9 +16,9 @@ namespace StudentManagement
         public delegate void ClassAddedEventHandler(object sender, EventArgs e);
         public event ClassAddedEventHandler ClassAdded;
 
-        public FormAddClass()
+        public FormAddClass(string providerName, string connectionStringName)
         {
-            classBL = new ClassBusinessLogic();
+            classBL = new ClassBusinessLogic(providerName, connectionStringName);
 
             InitializeComponent();
         }

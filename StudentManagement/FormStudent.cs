@@ -17,6 +17,8 @@ namespace StudentManagement
         StudentBusinessLogic studentBL;
         ClassBusinessLogic classBL;
         DataTable dataTableStudent;
+        string providerName;
+        string connectionStringName;
 
         public FormStudent()
         {
@@ -28,11 +30,26 @@ namespace StudentManagement
 
         private void FormStudent_Load(object sender, EventArgs e)
         {
-            LoadClasses();
+            LoadComboBoxDatabase();
+            LoadComboBoxClass();
             FillDataGridViewStudent(comboBoxClass.SelectedValue.ToString());
         } // end method FormStudent_Load
 
-        public void LoadClasses()
+        public void LoadComboBoxDatabase()
+        {
+            Dictionary<string, string> databases = new Dictionary<string, string>
+            {
+                {"SQL Server", "SQLServerConnectionString"},
+                {"MySQL Server", "MySQLConnectionString" }
+            };
+
+            comboBoxDatabase.DataSource = new BindingSource(databases, null);
+            comboBoxDatabase.DisplayMember = "Key";
+            comboBoxDatabase.ValueMember = "Value";
+            comboBoxDatabase.SelectedValue = "SQLServerConnectionString";
+        }
+
+        public void LoadComboBoxClass()
         {
             comboBoxClass.DataSource = classBL.GetClassList();
             comboBoxClass.DisplayMember = "TenLopHoc";
@@ -40,7 +57,7 @@ namespace StudentManagement
             textBoxClass.Text = comboBoxClass.Text;
         }
 
-        public void LoadClasses(object value)
+        public void LoadComboBoxClass(object value)
         {
             comboBoxClass.DataSource = classBL.GetClassList();
             comboBoxClass.DisplayMember = "TenLopHoc";
@@ -78,15 +95,15 @@ namespace StudentManagement
             dataGridViewStudent.Columns["QueQuan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         } // end method FillDataGridViewStudent
 
-        private void ButtonAdd_Click(object sender, EventArgs e)
+        private void ButtonAddStudent_Click(object sender, EventArgs e)
         {
-            FormAddStudent formAdd = new FormAddStudent();
+            FormAddStudent formAdd = new FormAddStudent(providerName, connectionStringName);
 
             formAdd.StudentAdded += (mySender, myE) => FillDataGridViewStudent(comboBoxClass.SelectedValue.ToString());
             formAdd.Show();
         } // end method ButtonAdd_Click
 
-        private void ButtonDelete_Click(object sender, EventArgs e)
+        private void ButtonDeleteStudent_Click(object sender, EventArgs e)
         {
             if (dataGridViewStudent.SelectedRows.Count > 0)
             {
@@ -98,12 +115,12 @@ namespace StudentManagement
             }
         } // end method buttonDelete_Click
 
-        private void ButtonUpdate_Click(object sender, EventArgs e)
+        private void ButtonUpdateStudent_Click(object sender, EventArgs e)
         {
             if (dataGridViewStudent.SelectedRows.Count > 0)
             {
                 string studentId = dataGridViewStudent.SelectedRows[0].Cells["HocSinhID"].Value.ToString();
-                FormUpdateStudent formUpdate = new FormUpdateStudent(studentBL.GetStudent(studentId));
+                FormUpdateStudent formUpdate = new FormUpdateStudent(providerName, connectionStringName, studentBL.GetStudent(studentId));
 
                 formUpdate.StudentUpdated += (mySender, myE) => FillDataGridViewStudent(comboBoxClass.SelectedValue.ToString());
                 formUpdate.Show();
@@ -129,15 +146,15 @@ namespace StudentManagement
             classBL.UpdateClass(c);
 
             // reload class data
-            LoadClasses(currentClassId);
+            LoadComboBoxClass(currentClassId);
         }
 
         private void buttonAddClass_Click(object sender, EventArgs e)
         {
-            FormAddClass formAddClass = new FormAddClass();
+            FormAddClass formAddClass = new FormAddClass(providerName, connectionStringName);
             string currentClassId = comboBoxClass.SelectedValue.ToString();
 
-            formAddClass.ClassAdded += (_, myE) => LoadClasses(currentClassId);
+            formAddClass.ClassAdded += (_, myE) => LoadComboBoxClass(currentClassId);
             formAddClass.Show();
         }
 
@@ -150,8 +167,19 @@ namespace StudentManagement
             else
             {
                 classBL.DeleteClass(comboBoxClass.SelectedValue.ToString());
-                LoadClasses();
+                LoadComboBoxClass();
             }
+        }
+
+        private void ComboBoxDatabase_SelectedValueChanged(object sender, EventArgs e)
+        {
+            connectionStringName = ((KeyValuePair<string, string>)comboBoxDatabase.SelectedItem).Value.ToString();
+            providerName = ConfigurationManager.ConnectionStrings[connectionStringName].ProviderName;
+
+            studentBL = new StudentBusinessLogic(providerName, connectionStringName);
+            classBL = new ClassBusinessLogic(providerName, connectionStringName);
+            LoadComboBoxClass();
+            FillDataGridViewStudent(comboBoxClass.SelectedValue.ToString());
         }
     }
 }

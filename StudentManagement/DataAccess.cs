@@ -24,6 +24,13 @@ namespace StudentManagement
             Connection.ConnectionString = ConfigurationManager.ConnectionStrings[connectionStringName].ConnectionString;
         }
 
+        public DataAccess(string providerName, string connectionStringName)
+        {
+            Provider = DbProviderFactories.GetFactory(providerName);
+            Connection = Provider.CreateConnection();
+            Connection.ConnectionString = ConfigurationManager.ConnectionStrings[connectionStringName].ConnectionString;
+        }
+
         /// <summary>
         /// get data from database
         /// </summary>

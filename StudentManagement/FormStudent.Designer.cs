@@ -146,6 +146,7 @@
             this.comboBoxDatabase.Name = "comboBoxDatabase";
             this.comboBoxDatabase.Size = new System.Drawing.Size(116, 21);
             this.comboBoxDatabase.TabIndex = 0;
+            this.comboBoxDatabase.SelectedValueChanged += new System.EventHandler(this.ComboBoxDatabase_SelectedValueChanged);
             // 
             // groupBoxClass
             // 
@@ -281,7 +282,7 @@
             this.buttonAddStudent.TabIndex = 0;
             this.buttonAddStudent.Text = "Thêm";
             this.buttonAddStudent.UseVisualStyleBackColor = true;
-            this.buttonAddStudent.Click += new System.EventHandler(this.ButtonAdd_Click);
+            this.buttonAddStudent.Click += new System.EventHandler(this.ButtonAddStudent_Click);
             // 
             // buttonUpdateStudent
             // 
@@ -292,7 +293,7 @@
             this.buttonUpdateStudent.TabIndex = 1;
             this.buttonUpdateStudent.Text = "Cập nhật";
             this.buttonUpdateStudent.UseVisualStyleBackColor = true;
-            this.buttonUpdateStudent.Click += new System.EventHandler(this.ButtonUpdate_Click);
+            this.buttonUpdateStudent.Click += new System.EventHandler(this.ButtonUpdateStudent_Click);
             // 
             // buttonDeleteStudent
             // 
@@ -303,7 +304,7 @@
             this.buttonDeleteStudent.TabIndex = 2;
             this.buttonDeleteStudent.Text = "Xóa";
             this.buttonDeleteStudent.UseVisualStyleBackColor = true;
-            this.buttonDeleteStudent.Click += new System.EventHandler(this.ButtonDelete_Click);
+            this.buttonDeleteStudent.Click += new System.EventHandler(this.ButtonDeleteStudent_Click);
             // 
             // groupBox1
             // 

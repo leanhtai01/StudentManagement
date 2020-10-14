@@ -18,10 +18,10 @@ namespace StudentManagement
         public delegate void StudentUpdatedEventHandler(object sender, EventArgs e);
         public event StudentUpdatedEventHandler StudentUpdated;
 
-        public FormUpdateStudent(Student student)
+        public FormUpdateStudent(string providerName, string connectionStringName, Student student)
         {
-            studentBL = new StudentBusinessLogic();
-            classBL = new ClassBusinessLogic();
+            studentBL = new StudentBusinessLogic(providerName, connectionStringName);
+            classBL = new ClassBusinessLogic(providerName, connectionStringName);
             this.student = student;
 
             InitializeComponent();

@@ -14,18 +14,18 @@ namespace StudentManagement
 {
     public partial class FormStudent : Form
     {
-        StudentBusinessLogic businessLogic;
+        StudentBusinessLogic studentBL;
 
         public FormStudent()
         {
-            businessLogic = new StudentBusinessLogic();
+            studentBL = new StudentBusinessLogic();
 
             InitializeComponent();
         }
 
         private void FormStudent_Load(object sender, EventArgs e)
         {
-            comboBoxClass.DataSource = businessLogic.GetClassList();
+            comboBoxClass.DataSource = studentBL.GetClassList();
             comboBoxClass.DisplayMember = "TenLopHoc";
             comboBoxClass.ValueMember = "LopHocID";
             textBoxClass.Text = comboBoxClass.Text;
@@ -50,7 +50,7 @@ namespace StudentManagement
         /// <param name="classId"></param>
         private void FillDataGridViewStudent(string classId)
         {
-            dataGridViewStudent.DataSource = businessLogic.GetStudentListByClassId(classId);
+            dataGridViewStudent.DataSource = studentBL.GetStudentListByClassId(classId);
             dataGridViewStudent.Columns["HocSinhID"].HeaderText = "MSSV";
             dataGridViewStudent.Columns["TenHocSinh"].HeaderText = "Tên học sinh";
             dataGridViewStudent.Columns["NamSinh"].HeaderText = "Năm sinh";
@@ -75,7 +75,7 @@ namespace StudentManagement
             {
                 string studentId = dataGridViewStudent.SelectedRows[0].Cells["HocSinhID"].Value.ToString();
 
-                businessLogic.DeleteStudent(studentId);
+                studentBL.DeleteStudent(studentId);
 
                 FillDataGridViewStudent(comboBoxClass.SelectedValue.ToString());
             }
@@ -86,7 +86,7 @@ namespace StudentManagement
             if (dataGridViewStudent.SelectedRows.Count > 0)
             {
                 string studentId = dataGridViewStudent.SelectedRows[0].Cells["HocSinhID"].Value.ToString();
-                FormUpdateStudent formUpdate = new FormUpdateStudent(businessLogic.GetStudent(studentId));
+                FormUpdateStudent formUpdate = new FormUpdateStudent(studentBL.GetStudent(studentId));
 
                 formUpdate.StudentUpdated += (mySender, myE) => FillDataGridViewStudent(comboBoxClass.SelectedValue.ToString());
                 formUpdate.Show();

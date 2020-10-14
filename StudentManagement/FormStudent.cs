@@ -27,13 +27,18 @@ namespace StudentManagement
 
         private void FormStudent_Load(object sender, EventArgs e)
         {
-            comboBoxClass.DataSource = classBL.GetClassList();
-            comboBoxClass.DisplayMember = "TenLopHoc";
-            comboBoxClass.ValueMember = "LopHocID";
+            LoadComboBoxClass();
             textBoxClass.Text = comboBoxClass.Text;
 
             FillDataGridViewStudent(comboBoxClass.SelectedValue.ToString());
         } // end method FormStudent_Load
+
+        public void LoadComboBoxClass()
+        {
+            comboBoxClass.DataSource = classBL.GetClassList();
+            comboBoxClass.DisplayMember = "TenLopHoc";
+            comboBoxClass.ValueMember = "LopHocID";
+        }
 
         /// <summary>
         /// re-fill data grid every time user change class
@@ -94,5 +99,29 @@ namespace StudentManagement
                 formUpdate.Show();
             }
         } // end method buttonUpdate_Click
+
+        private void TextBoxClass_TextChanged(object sender, EventArgs e)
+        {
+            buttonUpdateClass.Enabled = true;
+
+            if (string.IsNullOrEmpty(textBoxClass.Text.Trim()))
+            {
+                buttonUpdateClass.Enabled = false;
+            }
+        }
+
+        private void ButtonUpdateClass_Click(object sender, EventArgs e)
+        {
+            string currentClassId = comboBoxClass.SelectedValue.ToString();
+            Class c = classBL.GetClass(currentClassId);
+            
+            c.Name = textBoxClass.Text;
+            classBL.UpdateClass(c);
+            LoadComboBoxClass();
+
+            // reload class data
+            comboBoxClass.SelectedValue = currentClassId;
+            textBoxClass.Text = comboBoxClass.Text;
+        }
     }
 }

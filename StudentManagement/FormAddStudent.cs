@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data;
+using System.Data.Common;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -8,6 +10,10 @@ namespace StudentManagement
     {
         StudentBusinessLogic studentBL;
         ClassBusinessLogic classBL;
+        DataSet dataSet;
+        DbDataAdapter dataAdapter;
+        string tableNameStudent = "HocSinh";
+        string tableNameClass = "LopHoc";
         public delegate void StudentAddedEventHandler(object sender, EventArgs e);
         public event StudentAddedEventHandler StudentAdded;
 
@@ -19,11 +25,19 @@ namespace StudentManagement
             InitializeComponent();
         }
 
+        public FormAddStudent(DataSet dataSet, DbDataAdapter dataAdapter)
+        {
+            InitializeComponent();
+
+            this.dataSet = dataSet;
+            this.dataAdapter = dataAdapter;
+        }
+
         private void FormAdd_Load(object sender, EventArgs e)
         {
             buttonAdd.Enabled = false;
 
-            comboBoxClass.DataSource = classBL.GetClassList();
+            comboBoxClass.DataSource = new BindingSource(dataSet, tableNameClass);
             comboBoxClass.DisplayMember = "TenLopHoc";
             comboBoxClass.ValueMember = "LopHocID";
         }
@@ -102,15 +116,29 @@ namespace StudentManagement
 
         private void ButtonAdd_Click(object sender, EventArgs e)
         {
-            if (studentBL.IsStudentExists(textBoxId.Text.Trim()))
+            DataTable dataTableStudent = dataSet.Tables[tableNameStudent];
+            DataRow tmpRow = dataTableStudent.Rows.Find(textBoxId.Text.Trim());
+
+            if (tmpRow == null)
             {
-                MessageBox.Show("Học sinh đã tồn tại! Không thể thêm!");
+                Student newStudent = GetStudent();
+                DataRow newRow = dataTableStudent.NewRow();
+
+                newRow["HocSinhID"] = newStudent.Id;
+                newRow["TenHocSinh"] = newStudent.Name;
+                newRow["NamSinh"] = newStudent.BirthYear;
+                newRow["DiemTrungBinh"] = newStudent.GPA;
+                newRow["QueQuan"] = newStudent.Hometown;
+                newRow["LopHocID"] = newStudent.ClassId;
+                dataTableStudent.Rows.Add(newRow);
+
+                dataAdapter.Update(dataSet, tableNameStudent);
+
+                MessageBox.Show("Thêm học sinh thành công!");
             }
             else
             {
-                studentBL.InsertStudent(GetStudent());
-                StudentAdded?.Invoke(this, EventArgs.Empty);
-                MessageBox.Show("Thêm học sinh thành công!");
+                MessageBox.Show("Học sinh đã tồn tại! Không thể thêm!");
             }
         } // end method ButtonAdd_Click
     }

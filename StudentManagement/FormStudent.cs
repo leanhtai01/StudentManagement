@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.Common;
 using System.Windows.Forms;
 
 namespace StudentManagement
@@ -13,12 +14,23 @@ namespace StudentManagement
         string providerName;
         string connectionStringName;
         DataSet dataSet = new DataSet();
+        DbDataAdapter dataAdapterStudent;
+        DbDataAdapter dataAdapterClass;
         BindingSource bindingSourceStudent = new BindingSource();
         BindingSource bindingSourceClass = new BindingSource();
 
         public FormStudent()
         {
             InitializeComponent();
+
+            buttonAddStudent.Click += ButtonAddStudent_Click;
+        }
+
+        private void ButtonAddStudent_Click(object sender, EventArgs e)
+        {
+            FormAddStudent formAddStudent = new FormAddStudent(dataSet, dataAdapterStudent);
+
+            formAddStudent.Show();
         }
 
         private void FormStudent_Load(object sender, EventArgs e)
@@ -36,12 +48,16 @@ namespace StudentManagement
             DataColumn childColumn;
 
             // load and add data, relation to dataset
-            dataSet.Tables.Add(studentBL.GetStudentList(tableNameStudent));
-            dataSet.Tables.Add(classBL.GetClassList(tableNameClass));
+            dataAdapterStudent = studentBL.GetStudentList(dataSet, tableNameStudent);
+            dataAdapterClass = classBL.GetClassList(dataSet, tableNameClass);
             parentColumn = dataSet.Tables[tableNameClass].Columns["LopHocID"];
             childColumn = dataSet.Tables[tableNameStudent].Columns["LopHocID"];
             relStudentClass = new DataRelation(relNameStudentClass, parentColumn, childColumn);
             dataSet.Relations.Add(relStudentClass);
+
+            // set primary key for tables in dataset
+            dataSet.Tables[tableNameStudent].PrimaryKey = new DataColumn[] { dataSet.Tables[tableNameStudent].Columns["HocSinhID"] };
+            dataSet.Tables[tableNameClass].PrimaryKey = new DataColumn[] { dataSet.Tables[tableNameClass].Columns["LopHocID"] };
 
             // binding data to combobox
             bindingSourceClass = new BindingSource(dataSet, tableNameClass);

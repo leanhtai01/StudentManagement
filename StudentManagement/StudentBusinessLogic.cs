@@ -48,6 +48,13 @@ namespace StudentManagement
             return dataAccess.GetDataTable(tableName, commandText);
         } // end method GetStudentList
 
+        public DbDataAdapter GetStudentList(DataSet dataSet, string tableName)
+        {
+            string commandText = "SELECT * FROM HocSinh";
+
+            return dataAccess.GetDataTable(dataSet, tableName, commandText);
+        } // end method GetStudentList
+
         /// <summary>
         /// check whether student is exists
         /// </summary>

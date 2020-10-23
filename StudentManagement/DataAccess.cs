@@ -72,6 +72,29 @@ namespace StudentManagement
             return dataTable;
         } // end method GetData
 
+        public DbDataAdapter GetDataTable(DataSet dataSet, string tableName, string commandText, params DbParameter[] parameters)
+        {
+            // declare variables
+            DbDataAdapter dataAdapter = Provider.CreateDataAdapter();
+            DbCommandBuilder commandBuilder = Provider.CreateCommandBuilder();
+            DataTable dataTable = new DataTable(tableName);
+            DbCommand command = Provider.CreateCommand();
+
+            // add parameters to DbCommand
+            command.Connection = Connection;
+            command.CommandText = commandText;
+            command.CommandType = CommandType.Text;
+            command.Parameters.AddRange(parameters);
+
+            // fill DataTable
+            dataAdapter.SelectCommand = command;
+            dataAdapter.Fill(dataSet, tableName);
+
+            commandBuilder.DataAdapter = dataAdapter;
+
+            return dataAdapter;
+        } // end method GetData
+
         public object ExecuteScalar(string commandText, params DbParameter[] dbParameters)
         {
             DbCommand command = Provider.CreateCommand();

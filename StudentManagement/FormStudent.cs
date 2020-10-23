@@ -18,12 +18,24 @@ namespace StudentManagement
         DbDataAdapter dataAdapterClass;
         BindingSource bindingSourceStudent = new BindingSource();
         BindingSource bindingSourceClass = new BindingSource();
+        string tableNameStudent = "HocSinh";
+        string tableNameClass = "LopHoc";
 
         public FormStudent()
         {
             InitializeComponent();
 
             buttonAddStudent.Click += ButtonAddStudent_Click;
+            buttonDeleteStudent.Click += ButtonDeleteStudent_Click;
+        }
+
+        private void ButtonDeleteStudent_Click(object sender, EventArgs e)
+        {
+            if (bindingSourceStudent.Count != 0)
+            {
+                bindingSourceStudent.RemoveAt(BindingContext[bindingSourceStudent].Position);
+                dataAdapterStudent.Update(dataSet, tableNameStudent);
+            }
         }
 
         private void ButtonAddStudent_Click(object sender, EventArgs e)
@@ -40,8 +52,6 @@ namespace StudentManagement
 
         private void LoadData()
         {
-            string tableNameStudent = "HocSinh";
-            string tableNameClass = "LopHoc";
             string relNameStudentClass = "StudentClass";
             DataRelation relStudentClass;
             DataColumn parentColumn;

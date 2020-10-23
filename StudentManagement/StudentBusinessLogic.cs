@@ -41,6 +41,13 @@ namespace StudentManagement
             return dataAccess.GetDataTable(commandText, listParameters.ToArray());
         } // end method GetStudentListByClassId
 
+        public DataTable GetStudentList(string tableName)
+        {
+            string commandText = "SELECT * FROM HocSinh";
+
+            return dataAccess.GetDataTable(tableName, commandText);
+        } // end method GetStudentList
+
         /// <summary>
         /// check whether student is exists
         /// </summary>

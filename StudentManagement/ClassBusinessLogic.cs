@@ -33,6 +33,13 @@ namespace StudentManagement
             return dataAccess.GetDataTable(commandText);
         } // end method GetClassList
 
+        public DataTable GetClassList(string tableName)
+        {
+            string commandText = "SELECT * FROM LopHoc;";
+
+            return dataAccess.GetDataTable(tableName, commandText);
+        } // end method GetClassList
+
         public int UpdateClass(Class c)
         {
             string commandText =

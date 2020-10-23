@@ -193,7 +193,6 @@
             this.comboBoxClass.Name = "comboBoxClass";
             this.comboBoxClass.Size = new System.Drawing.Size(115, 21);
             this.comboBoxClass.TabIndex = 1;
-            this.comboBoxClass.SelectedValueChanged += new System.EventHandler(this.ComboBoxClass_SelectedValueChanged);
             // 
             // buttonAddClass
             // 
@@ -203,7 +202,6 @@
             this.buttonAddClass.TabIndex = 2;
             this.buttonAddClass.Text = "+";
             this.buttonAddClass.UseVisualStyleBackColor = true;
-            this.buttonAddClass.Click += new System.EventHandler(this.buttonAddClass_Click);
             // 
             // flowLayoutPanel3
             // 
@@ -223,7 +221,6 @@
             this.buttonUpdateClass.TabIndex = 0;
             this.buttonUpdateClass.Text = "Cập nhật";
             this.buttonUpdateClass.UseVisualStyleBackColor = true;
-            this.buttonUpdateClass.Click += new System.EventHandler(this.ButtonUpdateClass_Click);
             // 
             // buttonDeleteClass
             // 
@@ -233,7 +230,6 @@
             this.buttonDeleteClass.TabIndex = 1;
             this.buttonDeleteClass.Text = "Xóa";
             this.buttonDeleteClass.UseVisualStyleBackColor = true;
-            this.buttonDeleteClass.Click += new System.EventHandler(this.buttonDeleteClass_Click);
             // 
             // textBoxClass
             // 
@@ -283,7 +279,6 @@
             this.buttonAddStudent.TabIndex = 0;
             this.buttonAddStudent.Text = "Thêm";
             this.buttonAddStudent.UseVisualStyleBackColor = true;
-            this.buttonAddStudent.Click += new System.EventHandler(this.ButtonAddStudent_Click);
             // 
             // buttonUpdateStudent
             // 
@@ -294,7 +289,6 @@
             this.buttonUpdateStudent.TabIndex = 1;
             this.buttonUpdateStudent.Text = "Cập nhật";
             this.buttonUpdateStudent.UseVisualStyleBackColor = true;
-            this.buttonUpdateStudent.Click += new System.EventHandler(this.ButtonUpdateStudent_Click);
             // 
             // buttonDeleteStudent
             // 
@@ -305,7 +299,6 @@
             this.buttonDeleteStudent.TabIndex = 2;
             this.buttonDeleteStudent.Text = "Xóa";
             this.buttonDeleteStudent.UseVisualStyleBackColor = true;
-            this.buttonDeleteStudent.Click += new System.EventHandler(this.ButtonDeleteStudent_Click);
             // 
             // groupBox1
             // 

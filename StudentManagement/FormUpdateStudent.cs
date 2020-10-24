@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data;
+using System.Data.Common;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -11,6 +13,10 @@ namespace StudentManagement
         Student student;
         public delegate void StudentUpdatedEventHandler(object sender, EventArgs e);
         public event StudentUpdatedEventHandler StudentUpdated;
+        DataSet dataSet;
+        DbDataAdapter dataAdapter;
+        string tableNameStudent = "HocSinh";
+        string tableNameClass = "LopHoc";
 
         public FormUpdateStudent(string providerName, string connectionStringName, Student student)
         {
@@ -21,11 +27,20 @@ namespace StudentManagement
             InitializeComponent();
         }
 
+        public FormUpdateStudent(DataSet dataSet, DbDataAdapter dataAdapter, Student student)
+        {
+            InitializeComponent();
+
+            this.dataSet = dataSet;
+            this.dataAdapter = dataAdapter;
+            this.student = student;
+        }
+
         private void FormUpdate_Load(object sender, EventArgs e)
         {
             buttonUpdate.Enabled = true;
 
-            comboBoxClass.DataSource = classBL.GetClassList();
+            comboBoxClass.DataSource = new BindingSource(dataSet, tableNameClass);
             comboBoxClass.DisplayMember = "TenLopHoc";
             comboBoxClass.ValueMember = "LopHocID";
 
@@ -84,8 +99,18 @@ namespace StudentManagement
 
         private void ButtonUpdate_Click(object sender, EventArgs e)
         {
-            studentBL.UpdateStudent(GetStudent());
-            StudentUpdated?.Invoke(this, EventArgs.Empty);
+            Student updatedStudent = GetStudent();
+            DataTable dataTableStudent = dataSet.Tables[tableNameStudent];
+            DataRow updatedRow = dataTableStudent.Rows.Find(updatedStudent.Id);
+
+            updatedRow["TenHocSinh"] = updatedStudent.Name;
+            updatedRow["NamSinh"] = updatedStudent.BirthYear;
+            updatedRow["DiemTrungBinh"] = updatedStudent.GPA;
+            updatedRow["QueQuan"] = updatedStudent.Hometown;
+            updatedRow["LopHocID"] = updatedStudent.ClassId;
+
+            dataAdapter.Update(dataSet, tableNameStudent);
+
             MessageBox.Show("Cập nhật học sinh thành công!");
         }
 

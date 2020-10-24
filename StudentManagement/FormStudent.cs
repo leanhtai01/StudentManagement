@@ -27,6 +27,28 @@ namespace StudentManagement
 
             buttonAddStudent.Click += ButtonAddStudent_Click;
             buttonDeleteStudent.Click += ButtonDeleteStudent_Click;
+            buttonUpdateStudent.Click += ButtonUpdateStudent_Click;
+        }
+
+        private void ButtonUpdateStudent_Click(object sender, EventArgs e)
+        {
+            Student student = ConvertDataRowViewToStudent((DataRowView)BindingContext[bindingSourceStudent].Current);
+            FormUpdateStudent formUpdateStudent = new FormUpdateStudent(dataSet, dataAdapterStudent, student);
+
+            formUpdateStudent.Show();
+        }
+
+        private Student ConvertDataRowViewToStudent(DataRowView dataRowView)
+        {
+            return new Student
+            {
+                Id = dataRowView["HocSinhId"].ToString(),
+                Name = dataRowView["TenHocSinh"].ToString(),
+                BirthYear = int.Parse(dataRowView["NamSinh"].ToString()),
+                GPA = double.Parse(dataRowView["DiemTrungBinh"].ToString()),
+                Hometown = dataRowView["QueQuan"].ToString(),
+                ClassId = dataRowView["LopHocID"].ToString()
+            };
         }
 
         private void ButtonDeleteStudent_Click(object sender, EventArgs e)

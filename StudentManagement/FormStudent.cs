@@ -29,6 +29,14 @@ namespace StudentManagement
             buttonDeleteStudent.Click += ButtonDeleteStudent_Click;
             buttonUpdateStudent.Click += ButtonUpdateStudent_Click;
             buttonUpdateClass.Click += ButtonUpdateClass_Click;
+            buttonAddClass.Click += ButtonAddClass_Click;
+        }
+
+        private void ButtonAddClass_Click(object sender, EventArgs e)
+        {
+            FormAddClass formAddClass = new FormAddClass(dataSet, dataAdapterClass);
+
+            formAddClass.Show();
         }
 
         private void ButtonUpdateClass_Click(object sender, EventArgs e)

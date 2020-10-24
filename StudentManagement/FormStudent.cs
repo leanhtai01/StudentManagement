@@ -28,6 +28,13 @@ namespace StudentManagement
             buttonAddStudent.Click += ButtonAddStudent_Click;
             buttonDeleteStudent.Click += ButtonDeleteStudent_Click;
             buttonUpdateStudent.Click += ButtonUpdateStudent_Click;
+            buttonUpdateClass.Click += ButtonUpdateClass_Click;
+        }
+
+        private void ButtonUpdateClass_Click(object sender, EventArgs e)
+        {
+            BindingContext[bindingSourceClass].EndCurrentEdit();
+            dataAdapterClass.Update(dataSet, tableNameClass);
         }
 
         private void ButtonUpdateStudent_Click(object sender, EventArgs e)

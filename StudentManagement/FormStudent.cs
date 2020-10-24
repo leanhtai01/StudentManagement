@@ -30,6 +30,20 @@ namespace StudentManagement
             buttonUpdateStudent.Click += ButtonUpdateStudent_Click;
             buttonUpdateClass.Click += ButtonUpdateClass_Click;
             buttonAddClass.Click += ButtonAddClass_Click;
+            buttonDeleteClass.Click += ButtonDeleteClass_Click;
+        }
+
+        private void ButtonDeleteClass_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewStudent.Rows.Count > 0)
+            {
+                MessageBox.Show("Không thể xóa lớp học! Lớp học này có học sinh!");
+            }
+            else
+            {
+                bindingSourceClass.RemoveAt(BindingContext[bindingSourceClass].Position);
+                dataAdapterClass.Update(dataSet, tableNameClass);
+            }
         }
 
         private void ButtonAddClass_Click(object sender, EventArgs e)

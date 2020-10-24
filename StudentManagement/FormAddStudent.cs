@@ -14,6 +14,7 @@ namespace StudentManagement
         DbDataAdapter dataAdapter;
         string tableNameStudent = "HocSinh";
         string tableNameClass = "LopHoc";
+        BindingSource bindingSourceClass;
         public delegate void StudentAddedEventHandler(object sender, EventArgs e);
         public event StudentAddedEventHandler StudentAdded;
 
@@ -33,6 +34,15 @@ namespace StudentManagement
             this.dataAdapter = dataAdapter;
         }
 
+        public FormAddStudent(DataSet dataSet, DbDataAdapter dataAdapter, BindingSource bindingSourceClass)
+        {
+            InitializeComponent();
+
+            this.dataSet = dataSet;
+            this.dataAdapter = dataAdapter;
+            this.bindingSourceClass = bindingSourceClass;
+        }
+
         private void FormAdd_Load(object sender, EventArgs e)
         {
             buttonAdd.Enabled = false;
@@ -40,6 +50,7 @@ namespace StudentManagement
             comboBoxClass.DataSource = new BindingSource(dataSet, tableNameClass);
             comboBoxClass.DisplayMember = "TenLopHoc";
             comboBoxClass.ValueMember = "LopHocID";
+            comboBoxClass.SelectedValue = (BindingContext[bindingSourceClass].Current as DataRowView)["LopHocID"].ToString();
         }
 
         /// <summary>

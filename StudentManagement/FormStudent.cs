@@ -77,7 +77,7 @@ namespace StudentManagement
 
         private void ButtonAddStudent_Click(object sender, EventArgs e)
         {
-            FormAddStudent formAddStudent = new FormAddStudent(dataSet, dataAdapterStudent);
+            FormAddStudent formAddStudent = new FormAddStudent(dataSet, dataAdapterStudent, bindingSourceClass);
 
             formAddStudent.Show();
         }

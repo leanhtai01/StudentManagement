@@ -1,6 +1,6 @@
 ﻿namespace StudentManagement
 {
-    partial class FormStudent
+    partial class StudentManagementView
     {
         /// <summary>
         /// Required designer variable.
@@ -31,9 +31,6 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.groupBoxDatabase = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBoxDatabase = new System.Windows.Forms.ComboBox();
             this.groupBoxClass = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
@@ -56,8 +53,6 @@
             this.splitContainer1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            this.groupBoxDatabase.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
             this.groupBoxClass.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -103,7 +98,6 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.groupBoxDatabase);
             this.flowLayoutPanel1.Controls.Add(this.groupBoxClass);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
@@ -112,46 +106,10 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(188, 232);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // groupBoxDatabase
-            // 
-            this.groupBoxDatabase.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.groupBoxDatabase.Controls.Add(this.tableLayoutPanel4);
-            this.groupBoxDatabase.Location = new System.Drawing.Point(3, 3);
-            this.groupBoxDatabase.Name = "groupBoxDatabase";
-            this.groupBoxDatabase.Size = new System.Drawing.Size(179, 66);
-            this.groupBoxDatabase.TabIndex = 6;
-            this.groupBoxDatabase.TabStop = false;
-            this.groupBoxDatabase.Text = "Database";
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 1;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.comboBoxDatabase, 0, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 16);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(173, 47);
-            this.tableLayoutPanel4.TabIndex = 0;
-            // 
-            // comboBoxDatabase
-            // 
-            this.comboBoxDatabase.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.comboBoxDatabase.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxDatabase.FormattingEnabled = true;
-            this.comboBoxDatabase.Location = new System.Drawing.Point(5, 13);
-            this.comboBoxDatabase.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
-            this.comboBoxDatabase.Name = "comboBoxDatabase";
-            this.comboBoxDatabase.Size = new System.Drawing.Size(116, 21);
-            this.comboBoxDatabase.TabIndex = 0;
-            this.comboBoxDatabase.SelectedValueChanged += new System.EventHandler(this.ComboBoxDatabase_SelectedValueChanged);
-            // 
             // groupBoxClass
             // 
             this.groupBoxClass.Controls.Add(this.tableLayoutPanel2);
-            this.groupBoxClass.Location = new System.Drawing.Point(3, 75);
+            this.groupBoxClass.Location = new System.Drawing.Point(3, 3);
             this.groupBoxClass.Name = "groupBoxClass";
             this.groupBoxClass.Size = new System.Drawing.Size(179, 153);
             this.groupBoxClass.TabIndex = 4;
@@ -240,7 +198,6 @@
             this.textBoxClass.Name = "textBoxClass";
             this.textBoxClass.Size = new System.Drawing.Size(116, 20);
             this.textBoxClass.TabIndex = 1;
-            this.textBoxClass.TextChanged += new System.EventHandler(this.TextBoxClass_TextChanged);
             // 
             // groupBoxStudent
             // 
@@ -326,24 +283,21 @@
             this.dataGridViewStudent.Size = new System.Drawing.Size(951, 447);
             this.dataGridViewStudent.TabIndex = 0;
             // 
-            // FormStudent
+            // StudentManagementView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(957, 726);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "FormStudent";
+            this.Name = "StudentManagementView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý sinh viên";
-            this.Load += new System.EventHandler(this.FormStudent_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
-            this.groupBoxDatabase.ResumeLayout(false);
-            this.tableLayoutPanel4.ResumeLayout(false);
             this.groupBoxClass.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
@@ -378,9 +332,6 @@
         private System.Windows.Forms.Button buttonDeleteClass;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.GroupBox groupBoxDatabase;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.ComboBox comboBoxDatabase;
     }
 }
 

@@ -42,6 +42,7 @@
     </Reference>
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.0\lib\netstandard2.0\System.Memory.dll</HintPath>
     </Reference>
@@ -75,6 +76,12 @@
     <Compile Include="FormAddClass.Designer.cs">
       <DependentUpon>FormAddClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\QLHS.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLHS.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Presenter\StudentManagementPresenter.cs" />
     <Compile Include="StudentBusinessLogic.cs" />
     <Compile Include="DataAccess.cs" />
     <Compile Include="FormAddStudent.cs">
@@ -83,11 +90,11 @@
     <Compile Include="FormAddStudent.Designer.cs">
       <DependentUpon>FormAddStudent.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormStudent.cs">
+    <Compile Include="View\StudentManagementView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormStudent.Designer.cs">
-      <DependentUpon>FormStudent.cs</DependentUpon>
+    <Compile Include="View\StudentManagementView.Designer.cs">
+      <DependentUpon>StudentManagementView.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUpdateStudent.cs">
       <SubType>Form</SubType>
@@ -98,14 +105,15 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Student.cs" />
+    <Compile Include="View\IStudentManagementView.cs" />
     <EmbeddedResource Include="FormAddClass.resx">
       <DependentUpon>FormAddClass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAddStudent.resx">
       <DependentUpon>FormAddStudent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormStudent.resx">
-      <DependentUpon>FormStudent.cs</DependentUpon>
+    <EmbeddedResource Include="View\StudentManagementView.resx">
+      <DependentUpon>StudentManagementView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUpdateStudent.resx">
       <DependentUpon>FormUpdateStudent.cs</DependentUpon>
@@ -120,6 +128,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Model\QLHS.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>QLHS.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Model\QLHS.dbml.layout">
+      <DependentUpon>QLHS.dbml</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -134,5 +150,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

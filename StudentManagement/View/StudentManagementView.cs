@@ -11,9 +11,6 @@ namespace StudentManagement
 {
     public partial class StudentManagementView : Form, IStudentManagementView
     {
-        BindingSource bindingSourceClass;
-        BindingSource bindingSourceStudent;
-
         public StudentManagementView()
         {
             InitializeComponent();
@@ -33,7 +30,7 @@ namespace StudentManagement
             comboBoxClass.DisplayMember = "TenLopHoc";
             textBoxClass.DataBindings.Add("Text", BindingSourceClass, "TenLopHoc");
 
-            dataGridViewStudent.DataBindings.Add("DataSource", BindingSourceClass, "HocSinhs");
+            dataGridViewStudent.DataSource = BindingSourceStudent;
             InitializeDataGridViewStudent();
         }
 
@@ -50,7 +47,8 @@ namespace StudentManagement
             dataGridViewStudent.Columns["QueQuan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
-        public BindingSource BindingSourceClass { get => bindingSourceClass; set => bindingSourceClass = value; }
+        public BindingSource BindingSourceClass { get; set; }
+        public BindingSource BindingSourceStudent { get; set; }
 
         public event EventHandler CreateClass;
         public event EventHandler UpdateClass;

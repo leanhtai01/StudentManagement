@@ -13,7 +13,7 @@ namespace StudentManagement.Presenter
     public class StudentManagementPresenter
     {
         IStudentManagementView view;
-        BindingSource bindingSourceClass;
+        //BindingSource bindingSourceClass;
         QLHSDataContext db;
 
         public StudentManagementPresenter(IStudentManagementView view)
@@ -25,11 +25,14 @@ namespace StudentManagement.Presenter
 
         private void View_LoadData(object sender, EventArgs e)
         {
-            bindingSourceClass = new BindingSource
+            BindingSource bindingSourceClass = new BindingSource
             {
                 DataSource = db.LopHocs
             };
             view.BindingSourceClass = bindingSourceClass;
+
+            BindingSource bindingSourceStudent = new BindingSource(bindingSourceClass, "HocSinhs");
+            view.BindingSourceStudent = bindingSourceStudent;
         }
     }
 }

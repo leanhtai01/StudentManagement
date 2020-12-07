@@ -10,6 +10,7 @@ namespace StudentManagement.View
     public interface IStudentManagementView
     {
         BindingSource BindingSourceClass { get; set; }
+        BindingSource BindingSourceStudent { get; set; }
         event EventHandler CreateClass;
         event EventHandler UpdateClass;
         event EventHandler DeleteClass;

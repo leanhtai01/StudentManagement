@@ -27,11 +27,13 @@ namespace StudentManagement
             buttonUpdateClass.Click += (_, e) =>
             {
                 UpdateClass?.Invoke(buttonUpdateClass, e);
+                MessageBox.Show("Cập nhật lớp học thành công!");
             };
 
             buttonDeleteClass.Click += (_, e) =>
             {
                 DeleteClass?.Invoke(buttonDeleteClass, e);
+                MessageBox.Show("Xóa lớp học thành công!");
             };
 
             buttonAddClass.Click += (_, e) =>

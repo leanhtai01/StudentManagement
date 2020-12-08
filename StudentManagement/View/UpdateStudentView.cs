@@ -37,6 +37,7 @@ namespace StudentManagement
             {
                 UpdatedStudent = GetStudent();
                 UpdateStudent?.Invoke(buttonUpdate, e);
+                MessageBox.Show("Cập nhật học sinh thành công!");
             };
 
             buttonCancel.Click += (_, e) =>

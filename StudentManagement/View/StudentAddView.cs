@@ -26,6 +26,7 @@ namespace StudentManagement
                 Db = db;
                 AddedStudent = GetStudent();
                 Add?.Invoke(buttonAdd, e);
+                MessageBox.Show("Thêm học sinh thành công!");
             };
 
             buttonCancel.Click += (_, e) =>

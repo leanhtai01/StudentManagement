@@ -26,6 +26,7 @@ namespace StudentManagement
                 AddedClass = GetClass();
                 BindingSourceClass = bindingSourceClass;
                 Add?.Invoke(buttonAdd, e);
+                MessageBox.Show("Thêm lớp học thành công!");
             };
             buttonCancel.Click += ButtonCancel_Click;
         }

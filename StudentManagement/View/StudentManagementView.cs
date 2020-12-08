@@ -22,12 +22,30 @@ namespace StudentManagement
                 LoadData?.Invoke(this, e);
                 LoadClass();
             };
+
+            buttonUpdateClass.Click += (_, e) =>
+            {
+                UpdateClass?.Invoke(buttonUpdateClass, e);
+            };
+
+            buttonDeleteClass.Click += (_, e) =>
+            {
+                DeleteClass?.Invoke(buttonDeleteClass, e);
+            };
+
+            buttonAddClass.Click += (_, e) =>
+            {
+                FormAddClass formAddClass = new FormAddClass(BindingSourceClass);
+
+                formAddClass.Show();
+            };
         }
 
         private void LoadClass()
         {
             comboBoxClass.DataSource = BindingSourceClass;
             comboBoxClass.DisplayMember = "TenLopHoc";
+            comboBoxClass.ValueMember = "LopHocID";
             textBoxClass.DataBindings.Add("Text", BindingSourceClass, "TenLopHoc");
 
             dataGridViewStudent.DataSource = BindingSourceStudent;
@@ -50,7 +68,6 @@ namespace StudentManagement
         public BindingSource BindingSourceClass { get; set; }
         public BindingSource BindingSourceStudent { get; set; }
 
-        public event EventHandler CreateClass;
         public event EventHandler UpdateClass;
         public event EventHandler DeleteClass;
         public event EventHandler CreateStudent;

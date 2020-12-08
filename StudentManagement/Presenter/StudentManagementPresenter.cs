@@ -24,6 +24,14 @@ namespace StudentManagement.Presenter
             view.LoadData += View_LoadData;
             view.UpdateClass += View_UpdateClass;
             view.DeleteClass += View_DeleteClass;
+            view.DeleteStudent += View_DeleteStudent;
+        }
+
+        private void View_DeleteStudent(object sender, EventArgs e)
+        {
+            db.HocSinhs.DeleteOnSubmit((HocSinh)view.BindingSourceStudent.Current);
+            view.BindingSourceStudent.RemoveCurrent();
+            db.SubmitChanges();
         }
 
         private void View_DeleteClass(object sender, EventArgs e)

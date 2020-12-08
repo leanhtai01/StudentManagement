@@ -47,6 +47,18 @@ namespace StudentManagement
 
                 formAddStudent.Show();
             };
+
+            buttonDeleteStudent.Click += (_, e) =>
+            {
+                DeleteStudent?.Invoke(buttonDeleteStudent, e);
+            };
+
+            buttonUpdateStudent.Click += (_, e) =>
+            {
+                FormUpdateStudent formUpdateStudent = new FormUpdateStudent(BindingSourceClass, BindingSourceStudent, Db);
+
+                formUpdateStudent.Show();
+            };
         }
 
         private void LoadClass()
@@ -79,7 +91,6 @@ namespace StudentManagement
 
         public event EventHandler UpdateClass;
         public event EventHandler DeleteClass;
-        public event EventHandler UpdateStudent;
         public event EventHandler DeleteStudent;
         public event EventHandler LoadData;
     }

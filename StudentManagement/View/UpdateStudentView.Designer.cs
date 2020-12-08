@@ -110,7 +110,6 @@
             this.textBoxHometown.Name = "textBoxHometown";
             this.textBoxHometown.Size = new System.Drawing.Size(141, 20);
             this.textBoxHometown.TabIndex = 10;
-            this.textBoxHometown.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // textBoxGPA
             // 
@@ -119,8 +118,6 @@
             this.textBoxGPA.Name = "textBoxGPA";
             this.textBoxGPA.Size = new System.Drawing.Size(141, 20);
             this.textBoxGPA.TabIndex = 9;
-            this.textBoxGPA.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            this.textBoxGPA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxGPA_KeyPress);
             // 
             // textBoxBirthYear
             // 
@@ -129,8 +126,6 @@
             this.textBoxBirthYear.Name = "textBoxBirthYear";
             this.textBoxBirthYear.Size = new System.Drawing.Size(141, 20);
             this.textBoxBirthYear.TabIndex = 8;
-            this.textBoxBirthYear.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            this.textBoxBirthYear.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxBirthYear_KeyPress);
             // 
             // textBoxName
             // 
@@ -140,7 +135,6 @@
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(141, 20);
             this.textBoxName.TabIndex = 7;
-            this.textBoxName.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // label1
             // 
@@ -245,7 +239,6 @@
             this.buttonUpdate.TabIndex = 0;
             this.buttonUpdate.Text = "Cập nhật";
             this.buttonUpdate.UseVisualStyleBackColor = true;
-            this.buttonUpdate.Click += new System.EventHandler(this.ButtonUpdate_Click);
             // 
             // buttonCancel
             // 
@@ -257,18 +250,16 @@
             this.buttonCancel.TabIndex = 1;
             this.buttonCancel.Text = "Hủy";
             this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
             // 
-            // FormUpdate
+            // FormUpdateStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(300, 396);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "FormUpdate";
+            this.Name = "FormUpdateStudent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sửa thông tin sinh viên";
-            this.Load += new System.EventHandler(this.FormUpdate_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();

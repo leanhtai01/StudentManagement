@@ -8,14 +8,12 @@ using System.Windows.Forms;
 
 namespace StudentManagement.View
 {
-    public interface IStudentManagementView
+    public interface IUpdateStudentView
     {
+        HocSinh UpdatedStudent { get; set; }
         BindingSource BindingSourceClass { get; set; }
         BindingSource BindingSourceStudent { get; set; }
         QLHSDataContext Db { get; set; }
-        event EventHandler UpdateClass;
-        event EventHandler DeleteClass;
-        event EventHandler DeleteStudent;
-        event EventHandler LoadData;
+        event EventHandler UpdateStudent;
     }
 }

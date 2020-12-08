@@ -1,4 +1,5 @@
-﻿using StudentManagement.Presenter;
+﻿using StudentManagement.Model;
+using StudentManagement.Presenter;
 using StudentManagement.View;
 using System;
 using System.Collections.Generic;
@@ -35,9 +36,16 @@ namespace StudentManagement
 
             buttonAddClass.Click += (_, e) =>
             {
-                FormAddClass formAddClass = new FormAddClass(BindingSourceClass);
+                FormAddClass formAddClass = new FormAddClass(BindingSourceClass, Db);
 
                 formAddClass.Show();
+            };
+
+            buttonAddStudent.Click += (_, e) =>
+            {
+                FormAddStudent formAddStudent = new FormAddStudent(BindingSourceClass, BindingSourceStudent, Db);
+
+                formAddStudent.Show();
             };
         }
 
@@ -67,10 +75,10 @@ namespace StudentManagement
 
         public BindingSource BindingSourceClass { get; set; }
         public BindingSource BindingSourceStudent { get; set; }
+        public QLHSDataContext Db { get; set; }
 
         public event EventHandler UpdateClass;
         public event EventHandler DeleteClass;
-        public event EventHandler CreateStudent;
         public event EventHandler UpdateStudent;
         public event EventHandler DeleteStudent;
         public event EventHandler LoadData;

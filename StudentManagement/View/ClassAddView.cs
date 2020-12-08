@@ -11,7 +11,7 @@ namespace StudentManagement
 {
     public partial class FormAddClass : Form, IClassAddView
     {
-        public FormAddClass(BindingSource bindingSourceClass)
+        public FormAddClass(BindingSource bindingSourceClass, QLHSDataContext db)
         {
             InitializeComponent();
 
@@ -22,6 +22,7 @@ namespace StudentManagement
             textBoxName.TextChanged += TextBox_TextChanged;
             buttonAdd.Click += (_, e) =>
             {
+                Db = db;
                 AddedClass = GetClass();
                 BindingSourceClass = bindingSourceClass;
                 Add?.Invoke(buttonAdd, e);
@@ -59,6 +60,7 @@ namespace StudentManagement
 
         public LopHoc AddedClass { get; set; }
         public BindingSource BindingSourceClass { get; set; }
+        public QLHSDataContext Db { get; set; }
 
         public event EventHandler Add;
     }

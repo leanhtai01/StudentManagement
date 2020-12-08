@@ -20,6 +20,7 @@ namespace StudentManagement.Presenter
         {
             db = new QLHSDataContext();
             this.view = view;
+            view.Db = db;
             view.LoadData += View_LoadData;
             view.UpdateClass += View_UpdateClass;
             view.DeleteClass += View_DeleteClass;

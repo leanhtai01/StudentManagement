@@ -12,6 +12,7 @@ namespace StudentManagement.View
     {
         LopHoc AddedClass { get; set; }
         BindingSource BindingSourceClass { get; set; }
+        QLHSDataContext Db { get; set; }
         event EventHandler Add;
     }
 }

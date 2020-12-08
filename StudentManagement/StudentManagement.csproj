@@ -71,6 +71,7 @@
     <Compile Include="Class.cs" />
     <Compile Include="ClassBusinessLogic.cs" />
     <Compile Include="Presenter\ClassAddPresenter.cs" />
+    <Compile Include="Presenter\StudentAddPresenter.cs" />
     <Compile Include="View\ClassAddView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,11 +86,12 @@
     <Compile Include="Presenter\StudentManagementPresenter.cs" />
     <Compile Include="StudentBusinessLogic.cs" />
     <Compile Include="DataAccess.cs" />
-    <Compile Include="FormAddStudent.cs">
+    <Compile Include="View\IStudentAddView.cs" />
+    <Compile Include="View\StudentAddView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAddStudent.Designer.cs">
-      <DependentUpon>FormAddStudent.cs</DependentUpon>
+    <Compile Include="View\StudentAddView.Designer.cs">
+      <DependentUpon>StudentAddView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\IClassAddView.cs" />
     <Compile Include="View\StudentManagementView.cs">
@@ -111,8 +113,8 @@
     <EmbeddedResource Include="View\ClassAddView.resx">
       <DependentUpon>ClassAddView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAddStudent.resx">
-      <DependentUpon>FormAddStudent.cs</DependentUpon>
+    <EmbeddedResource Include="View\StudentAddView.resx">
+      <DependentUpon>StudentAddView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\StudentManagementView.resx">
       <DependentUpon>StudentManagementView.cs</DependentUpon>

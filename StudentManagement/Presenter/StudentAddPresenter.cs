@@ -3,16 +3,17 @@ using StudentManagement.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace StudentManagement.Presenter
 {
-    public class ClassAddPresenter
+    public class StudentAddPresenter
     {
-        IClassAddView view;
+        IStudentAddView view;
 
-        public ClassAddPresenter(IClassAddView view)
+        public StudentAddPresenter(IStudentAddView view)
         {
             this.view = view;
             view.Add += View_Add;
@@ -20,8 +21,8 @@ namespace StudentManagement.Presenter
 
         private void View_Add(object sender, EventArgs e)
         {
-            view.BindingSourceClass.Add((LopHoc)view.AddedClass);
-            view.Db.LopHocs.InsertOnSubmit(view.AddedClass);
+            view.BindingSourceStudent.Add((HocSinh)view.AddedStudent);
+            view.Db.HocSinhs.InsertOnSubmit(view.AddedStudent);
             view.Db.SubmitChanges();
         }
     }
